@@ -1,0 +1,507 @@
+:root {
+    --active-color: rgba(245, 205, 3, 1);
+  }
+
+#coco-description {
+    margin:auto;
+    text-align: center;
+    font-family: 'Pixel';
+    width: 65%;
+    font-size: 1.4vw !important;
+    line-height: 1.6vw !important;
+}
+
+#coco-balance-section {
+    padding-bottom: 0 !important;
+}
+
+h2, h3 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+h3 {
+    font-size: 1.7vw !important;
+    line-height: 1.7vw !important;
+}
+
+#claim-passive {
+    height: 1.5vw;
+    width: 1.5vw;
+}
+
+#coco-balances {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80vw;
+}
+
+.coco-balance-container {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 32.5%;
+}
+
+.coco-balance-container button {
+    width: 95%;
+}    
+
+#migration-steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.migration-step {
+    width: 33%;
+}
+
+.migration-step h3 {
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    width: 90% !important;
+}
+
+.migration-step button {
+    width: 90%;
+}
+
+.converted {
+    background-color: grey;
+}
+
+.converted:hover {
+    background-color: grey;
+}
+
+#approval, #migration {
+    width: 80vw;
+}
+
+#approval h3, #migration h3 {
+    width: 75%;
+    margin: auto;
+}
+
+#approval-button {
+    width: 50%;
+}
+
+#your-wavecatcher-section {
+    width:80vw;
+    margin: auto;
+    text-align: center;
+    min-height:40vh;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.staking-section {
+    width: 95%;
+}
+
+#wc-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#available-wavecatchers-images, #staked-wavecatchers-images {
+    padding: 10px;
+	border: solid black .5vw;
+	border-radius: 20px;
+    height: 53vh;
+    overflow-y: scroll;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.your-wavecatcher {
+    width: 25%;
+    margin: 1vw;
+    transition: transform ease 300ms;
+}
+
+.your-wavecatcher img {
+    border: solid black .5vw;
+	border-radius: 20px;
+    background-color: black;
+}
+
+.your-wavecatcher .coco-icon {
+    border: none;
+    width: 1.5vw;
+    margin: 0;
+    background-color: transparent;
+}
+
+.your-wavecatcher .coco-icon:hover {
+    border: none;
+}
+
+.wavecatcher-id, .coco-earned {
+    color: black;
+    margin-bottom: 0px;
+    padding: 0 !important;
+    text-align: center;
+    font-size: 1.5vw !important;
+    line-height: 1.5vw !important;
+  }
+  
+.your-wavecatcher:hover {
+    transform: translate(0, -5px);
+    cursor: pointer;
+}
+
+.your-wavecatcher:hover .wavecatcher-id, .your-wavecatcher:hover .coco-earned {
+    color: var(--active-color) !important;
+}
+
+.your-wavecatcher:hover img {
+    border-color: var(--active-color);
+    cursor: pointer;
+}
+
+.your-wavecatcher:hover .unlock-wrapper {
+    border-color: var(--active-color);
+    cursor: pointer;
+}
+
+.your-wavecatcher.active .unlock-wrapper {
+    border-color: var(--active-color);
+}
+
+.your-wavecatcher .coco-icon {
+    margin-bottom: .2vw;
+    margin-left: .2vw;
+}
+
+.img-div {
+    position: relative;
+    text-align: center;
+}
+
+.unlock-wrapper {
+    border: solid black .3vw;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .8;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.unlock-info {
+    text-align: center;
+    font-size: 1.1vw !important;
+}
+
+#controls-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.controls {
+    width: 49%;
+}
+  
+.active img {
+    border-color: var(--active-color);
+}
+
+.selected {
+    color: black;
+}
+
+.active img, .active p{
+    border-color: var(--active-color);
+    color: var(--active-color) !important;
+}
+
+.wavecatcher-id {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.one {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.0s;
+}
+  
+.two {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.2s;
+}
+  
+.three {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.3s;
+}
+  
+@-webkit-keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+  
+@keyframes dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.stake-buttons button {
+    width: 49%;
+    margin-bottom: 1%;
+}
+
+@media screen and (max-width: 991px) {
+
+    #coco-balance-section {
+        padding-bottom: 50px !important;
+    }
+
+    #claim-passive {
+        height: 3vh;
+        width: 3vh;
+    }
+
+    #coco-description {
+        margin:auto;
+        text-align: center;
+        width: 95%;
+        font-size: 2.5vh !important;
+        line-height: 2.9vh !important;
+    }
+
+    h2 {
+        font-size: 3.2vh !important;
+        line-height: 3.2vh !important; 
+    }
+
+    h3 {
+        font-size: 2.8vh !important;
+        line-height: 2.8vh !important;
+    }
+
+    #coco-balances {
+        display: block;
+        width: 100vw;
+    }
+
+    .coco-balance-container {
+        width: 95vw;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .coco-balance-container h2 {
+        font-size: 3.2vh;
+        line-height: 3.2vh !important;
+    }    
+
+    .coco-balance-container button {
+        width: 95%;
+        font-size: 2.5vh;
+        padding: 20px;
+    }    
+
+    #your-coco, #claimable-coco, #claimable-staking-coco {
+        font-size: 5vh;
+        line-height: 5vh;
+    }
+
+    .coco-balance-container .coco-icon {
+        width: 5vh;
+    }
+
+    #approval, #migration {
+        width: 95% !important;
+    }
+
+    #approval-button {
+        width: 95%;
+    }
+
+    #approval h3, #migration h3 {
+        width: 95%;
+        margin: auto;
+    }
+
+    #migration-steps {
+        display: block;
+    }
+
+    .migration-step {
+        width: 100%;
+    }
+
+    .migration-step button {
+        width: 95%;
+    }
+
+    #your-wavecatcher-section {
+        width:95vw;
+        min-height: 0;
+        margin: auto;
+        display: block;
+        padding: 10px;
+    }
+
+    .stake-buttons button {
+        margin: 5px;
+        width: 45%;
+        height: 6vh;
+    }
+
+    .staking-section {
+        width: 95%;
+        margin: 2.5%;
+    }
+
+    #staked-wavecatcher-wrapper {
+        margin-top: 30px;
+    }
+
+    #controls-wrapper {
+        display: block;
+    }
+
+    .controls {
+        width: 100%;
+    }
+
+    #available-wavecatchers-images, #staked-wavecatchers-images {
+        width: 100%;
+        border-width: 5px;
+        height: 55vh;
+        text-align: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .box3 {
+        padding: 20px;
+    }
+
+    .your-wavecatcher {
+        width: 41%;
+        margin: 10px;
+    }
+
+    .unlock-wrapper {
+        border-width: 5px;
+    }
+
+    .unlock-info {
+        font-size: 2.4vh !important;
+        line-height: 2.4vh !important;
+        padding: 3px !important;
+    }
+
+    .your-wavecatcher img {
+        border-width: 5px;
+    }
+
+    .your-wavecatcher .coco-icon {
+        border: none;
+        width: 3vh;
+        margin: 0;
+        margin-bottom: 2px;
+        margin-left: 4px;
+    }
+
+    .wavecatcher-id {
+        margin-top: 3px !important;
+    }
+
+    .wavecatcher-id, .coco-earned {
+        font-size: 2.8vh !important;
+        line-height: 3.1vh !important;
+    }
+
+    .active img {
+        border: solid 5px var(--active-color);;
+    }
+
+    .your-wavecatcher:hover img {
+        border: solid 5px var(--active-color);;
+        cursor: pointer;
+    }
+
+    .your-wavecatcher:hover .coco-icon {
+        border: none;
+    }
+}
