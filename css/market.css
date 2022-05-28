@@ -5,7 +5,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    position: relative;
 }
 
 .warning-icon {
@@ -24,6 +23,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .guard {
