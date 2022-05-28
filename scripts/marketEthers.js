@@ -108,6 +108,7 @@ const checkPrepSteps = async() => {
     let newMarketApproved = (Number(await coco.allowance(userAddress, newMarketAddress)) >= maxInt) ? true : false;
     if (newMarketApproved && discordSet) {
         $("#approval-container").remove();
+        return true;
     }
     else {
         if (newMarketApproved) {
@@ -122,6 +123,7 @@ const checkPrepSteps = async() => {
         else {
             $("#discord-warning").removeClass("hidden");
         }
+        return false;
     }
 };
 
@@ -285,6 +287,7 @@ setInterval(async()=>{
                         timerPending[i] = false;
                         $(`#timer-${id}`).html("LIVE NOW");
                         $(`#timer-${id}`).removeClass("pending");
+                        $(`#${id}-mint-button`).removeClass("hidden");
                     }
                     else {
                         $(`#timer-${id}`).html(`LIVE NEXT BLOCK<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
@@ -383,7 +386,7 @@ const loadCollections = async() => {
                             button = `<button class="mint-prompt-button button" id="${id}-mint-button" onclick="purchase(${id})">PURCHASE</button>`;
                         }
                         else if (version == 2) {
-                            button = `<button class="mint-prompt-button button" id="${id}-mint-button" onclick="purchaseWithName(${id})">PURCHASE</button>`;
+                            button = `<button class="mint-prompt-button button hidden" id="${id}-mint-button" onclick="purchaseWithName(${id})">PURCHASE</button>`;
                         }
                     }
                     let fakeJSX = `<div class="partner-collection" id="project-${id}">
