@@ -599,8 +599,8 @@ h5 {
     }
 
 	h1 {
-		font-size: 5.4vh !important;
-		line-height: 5.6vh !important;
+		font-size: 5vh !important;
+		line-height: 5.2vh !important;
 	}
 
     #error-popup, #status-popup, #discord-popup, #stake-popup, #confirm-popup {
