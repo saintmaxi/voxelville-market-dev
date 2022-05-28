@@ -40,11 +40,6 @@
             </a>
          </div>
          <div class="header-menu">
-            <a href="./coco.html" class="link">
-               TOKEN
-            </a>
-         </div>
-         <div class="header-menu">
             <a href="./market.html" class="link">
                MARKET
             </a>
@@ -102,11 +97,6 @@
                   </a>
                </div>
                <div class="header-menu">
-                  <a href="./coco.html" class="link">
-                     TOKEN
-                  </a>
-               </div>
-               <div class="header-menu">
                   <a href="./market.html" class="link">
                      MARKET
                   </a>
@@ -127,9 +117,6 @@
                <a href="https://opensea.io/collection/wavecatchersofficial" target="_blank" class="link w-inline-block">
                   <img src="images/os-transparent.png" loading="lazy" alt="" style="background-color: transparent;border-radius: 50%;">
                </a>
-               <a href="https://wavecatchersnft.medium.com/" target="_blank" class="link w-inline-block">
-                  <img src="images/mediumWhite.png" loading="lazy" alt="">
-               </a>
                <a href="https://etherscan.io/address/0x1a331c89898c37300ccce1298c62aefd3dfc016c" target="_blank" class="link w-inline-block">
                   <img class="etherscan" src="images/etherscan-white.png" loading="lazy" alt="" style="border-radius: 50%;">
                </a>
@@ -137,12 +124,15 @@
          </div>
       </div>
    </div>
-   <div id="approval-container" class="section body-section body-1 wf-section hidden">
+   <div id="approval-container">
       <div id="approval" class="container w-container box" style="text-align: center;">
-         <h1>APPROVE MARKETPLACE</h1><br>
-         <h3>In order to acquire WL slots with <img class="coco-icon" src="images/coco.png">, you must first approve the V2 marketplace contracts to spend your <img class="coco-icon" src="images/coco.png">.</h3><br>
-         <!-- <button class="button" id="approval-button" onclick="approveCocoToMarket()">APPROVE V1</button> -->
-         <button class="button" id="approval-button-new" onclick="approveCocoToNewMarket()">APPROVE V2</button>
+         <img id="warning-icon" src="./images/warning.webp">
+            <img id="guard" src="./images/guard.png">
+            <div id="approval-text">
+               <h1 id="approval-header">APPROVE<br>MARKETPLACE</h1><br>
+               <p class="inside-text" id="approval-description">In order to acquire WL slots with $VOVI, you must first approve the marketplace contract to spend your $VOVI.</p><br>
+               <button class="button" id="approval-button-new" onclick="approveCocoToMarket()">APPROVE MARKET</button>
+            </div>
       </div>
    </div>
    <div class="section body-section body-1 wf-section">

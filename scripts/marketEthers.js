@@ -551,7 +551,7 @@ const setChainLogo = async() => {
 }
 
 const updateInfo = async () => {
-    await checkCocoApproval();
+    // await checkCocoApproval();
     let userAddress = await getAddress();
     $("#account-text").html(`${userAddress.substr(0,7)}..`);
     $("#account").addClass(`connected`);

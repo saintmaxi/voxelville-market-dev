@@ -5,15 +5,44 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 70%;
+    position: relative;
+}
+
+#warning-icon {
+    width: 7%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 #approval {
     margin: 0;
     width: 45%;
-    /* background-image: url(../images/sand4.png), linear-gradient(to bottom, 
-    #D07C28    0%, #D07C28  100%); */
-   background-color: white;
+    margin-top: 20px;
+    font-family: "Korto";
+    background-image: linear-gradient(to bottom, rgba(245, 245, 7, 0.567), rgba(245, 245, 7, 0.567));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#guard {
+    width: 25%;
+}
+
+#approval-text {
+    width: 70%;
+}
+
+#approval-text .inside-text {
+    color: black;
+    text-align: center;
+
+}
+
+#approval-text button {
+    width: 100%;
 }
 
 .pending {
@@ -22,6 +51,7 @@
 
 #approval h1 {
     margin: 0;
+    font-family: "Korto Ultra";
 }
 
 /* End approval section */
@@ -436,6 +466,14 @@ h4 {
     #approval h1 {
         font-size: 4.5vh !important;
         line-height: 4.5vh !important;
+    }
+
+    #guard {
+        display: none;
+    }
+    
+    #approval-text {
+        width: 100%;
     }
 
     #approval-button, #approval-button-new {
