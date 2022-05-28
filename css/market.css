@@ -3,20 +3,19 @@
 #approval-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     position: relative;
 }
 
-#warning-icon {
+.warning-icon {
     width: 7%;
     position: absolute;
     top: 10px;
     left: 10px;
 }
 
-#approval {
-    margin: 0;
+#approval, #discord-warning {
     width: 45%;
     margin-top: 20px;
     font-family: "Korto";
@@ -27,21 +26,21 @@
     align-items: center;
 }
 
-#guard {
+.guard {
     width: 25%;
 }
 
-#approval-text {
+.approval-text {
     width: 70%;
 }
 
-#approval-text .inside-text {
+.approval-text .inside-text {
     color: black;
     text-align: center;
 
 }
 
-#approval-text button {
+.approval-text button {
     width: 100%;
 }
 
@@ -49,7 +48,7 @@
     color: red;
 }
 
-#approval h1 {
+#approval h1, #discord-warning h1 {
     margin: 0;
     font-family: "Korto Ultra";
 }
@@ -456,10 +455,11 @@ h4 {
     /* Approval section*/
 
     #approval-container {
+        display: block;
         height: initial;
     }
 
-    #approval {
+    #approval, #discord-warning {
         width: 90%;
     }
 
@@ -468,11 +468,11 @@ h4 {
         line-height: 4.5vh !important;
     }
 
-    #guard {
+    .guard {
         display: none;
     }
     
-    #approval-text {
+    .approval-text {
         width: 100%;
     }
 

@@ -103,16 +103,29 @@ const approveCocoToNewMarket = async() => {
     });
 }
 
-const checkCocoApproval = async() => {
+const checkPrepSteps = async() => {
     const userAddress = await getAddress();
     let newMarketApproved = (Number(await coco.allowance(userAddress, newMarketAddress)) >= maxInt) ? true : false;
-    if (newMarketApproved) {
+    if (newMarketApproved && discordSet) {
         $("#approval-container").remove();
     }
     else {
-        $("#approval-container").removeClass("hidden");
+        if (newMarketApproved) {
+            $("#approval").remove();
+        }
+        else {
+            $("#approval").removeClass("hidden");
+        }
+        if (discordSet) {
+            $("#discord-warning").remove();
+        }
+        else {
+            $("#discord-warning").removeClass("hidden");
+        }
     }
 };
+
+
 
 // - - - - - - - - - PURCHASE FUNCTIONS - - - - - - - - -
 
@@ -437,10 +450,10 @@ const loadCollections = async() => {
     $("#num-live").text(` (${numLive})`);
     $("#num-past").text(` (${numPast})`);
     if (numLive > 4) {
-        $("#scroll-indicator-live").html(`<img class="down-arrow" src="images/down-arrow.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">`);
+        $("#scroll-indicator-live").html(`<img class="down-arrow" src="images/down-arrow-white.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow-white.png">`);
     }
     if (numPast > 4) {
-        $("#scroll-indicator-past").html(`<img class="down-arrow" src="images/down-arrow.png"> SCROLL <span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">`);
+        $("#scroll-indicator-past").html(`<img class="down-arrow" src="images/down-arrow-white.png"> SCROLL <span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow-white.png">`);
     }
     loadedCollections = true;
 }
@@ -551,7 +564,7 @@ const setChainLogo = async() => {
 }
 
 const updateInfo = async () => {
-    // await checkCocoApproval();
+    // await checkPrepSteps();
     let userAddress = await getAddress();
     $("#account-text").html(`${userAddress.substr(0,7)}..`);
     $("#account").addClass(`connected`);

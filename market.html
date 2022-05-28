@@ -40,13 +40,18 @@
             </a>
          </div>
          <div class="header-menu">
-            <a href="./market.html" class="link">
+            <a href="./market.html" class="link active">
                MARKET
             </a>
          </div>
          <div class="header-menu">
             <a href="./lookup.html" class="link">
                LOOKUP
+            </a>
+         </div>
+         <div class="header-menu">
+            <a href="./faq.html" class="link">
+               FAQ
             </a>
          </div>
       </div>
@@ -97,13 +102,18 @@
                   </a>
                </div>
                <div class="header-menu">
-                  <a href="./market.html" class="link">
+                  <a href="./market.html" class="link active">
                      MARKET
                   </a>
                </div>
                <div class="header-menu">
                   <a href="./lookup.html" class="link">
                      LOOKUP
+                  </a>
+               </div>
+               <div class="header-menu">
+                  <a href="./faq.html" class="link">
+                     FAQ
                   </a>
                </div>
             </div>
@@ -126,12 +136,21 @@
    </div>
    <div id="approval-container">
       <div id="approval" class="container w-container box" style="text-align: center;">
-         <img id="warning-icon" src="./images/warning.webp">
-            <img id="guard" src="./images/guard.png">
-            <div id="approval-text">
-               <h1 id="approval-header">APPROVE<br>MARKETPLACE</h1><br>
+         <img class="warning-icon" src="./images/warning.webp">
+            <img class="guard" src="./images/guard.png">
+            <div class="approval-text">
+               <h1 class="approval-header">APPROVE<br>MARKETPLACE</h1><br>
                <p class="inside-text" id="approval-description">In order to acquire WL slots with $VOVI, you must first approve the marketplace contract to spend your $VOVI.</p><br>
                <button class="button" id="approval-button-new" onclick="approveCocoToMarket()">APPROVE MARKET</button>
+            </div>
+      </div>
+      <div id="discord-warning" class="container w-container box" style="text-align: center;">
+         <img class="warning-icon" src="./images/warning.webp">
+            <img class="guard" src="./images/guard.png">
+            <div class="approval-text">
+               <h1 class="approval-header">SET DISCORD<br>IDENTITY</h1><br>
+               <p class="inside-text" id="approval-description">In order to acquire WL slots with $VOVI, you must first set a Discord identity for your connected wallet.</p><br>
+               <button class="button" id="approval-button-new" onclick="promptForDiscord()">SET DISCORD</button>
             </div>
       </div>
    </div>
@@ -143,7 +162,7 @@
       <h2 id="scroll-indicator-live" class="hide-on-mobile" style="text-align: center;color: white;"></h2>
       <h2 id="scroll-indicator-past" class="hidden hide-on-mobile" style="text-align: center;color: white;"></h2>
       <h2 id="scroll-indicator" class="hide-on-desktop" style="text-align: center;color: white;">
-         <img class="down-arrow" src="images/down-arrow.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">
+         <img class="down-arrow" src="images/down-arrow-white.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow-white.png">
       </h2>
       <div id="live-collections">
          <div id="ex1" class="partner-collection example">
@@ -199,8 +218,6 @@
          </div>
       </div>
    </div>
-   <!-- <img src="images/WebsiteBG-mobile.png" loading="lazy" alt="" class="banner-img fixed-banner hide-on-desktop"> -->
-   <!-- <img src="images/voxville.jpeg" loading="lazy" alt="" class="banner-img fixed-banner hide-on-mobile"> -->
    <div class="coco-balance-float">
       <div>Balance: <span id="coco-balance"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span></div>
       <img class="coco-icon" src="./images/coco.png">

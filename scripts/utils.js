@@ -84,10 +84,10 @@ const loadInfuraListings = async() => {
     $("#num-live").text(` (${jsonData.numLive})`);
     $("#num-past").text(` (${jsonData.numPast})`);
     if (jsonData.numLive > 4) {
-        $("#scroll-indicator-live").html(`<img class="down-arrow" src="images/down-arrow.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">`);
+        $("#scroll-indicator-live").html(`<img class="down-arrow" src="images/down-arrow-white.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow-white.png">`);
     }
     if (jsonData.numPast > 4) {
-        $("#scroll-indicator-past").html(`<img class="down-arrow" src="images/down-arrow.png"> SCROLL <span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">`);
+        $("#scroll-indicator-past").html(`<img class="down-arrow" src="images/down-arrow-white.png"> SCROLL <span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow-white.png">`);
     }
 }
 

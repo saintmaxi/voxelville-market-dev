@@ -109,7 +109,9 @@
 #roadmap {
     -webkit-animation: bounce 1.3s infinite;
     animation: bounce 1.3s infinite;
-    color: black !important;
+    color: white !important;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
 .down-arrow {
@@ -152,6 +154,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    height: 35vh;
 }
 
 #about-text-desktop-1 {
@@ -166,11 +169,6 @@
 
 #about-gif {
     width: 15%;
-}
-
-#wc-gif {
-    border: .5vw black solid;
-    border-radius: 20px;
 }
 
 #about h2 {
@@ -411,6 +409,7 @@
     #about {
         display: block;
         padding: 15px;
+        height: initial;
     }
 
     #about p {
@@ -427,7 +426,8 @@
     }
     
     #about-gif {
-        width: 100%;
+        width: 80%;
+        margin: auto;
     }
 
     #wc-gif {

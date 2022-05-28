@@ -13,6 +13,15 @@
 	src: URL('../css/korto-ultra.ttf') format('truetype');
 }  
 
+.right-number, .left-number {
+	font-family: 'Korto Ultra';
+}
+
+.link.active {
+	background-color: transparent;
+	color: #F5CD03 !important;
+}
+
 html, body {
 	overscroll-behavior: none;
 	font-family: 'Wavey', sans-serif;
@@ -56,6 +65,7 @@ html, body {
 .coco-icon {
 	display: inline;
 	width: 1.8vw;
+	margin-bottom: 3px;
 }
 
 .hidden {
@@ -76,11 +86,11 @@ html, body {
 }
 
 h1, h2 {
+	font-family: 'Korto Ultra';
 	letter-spacing: 3px;
 }
 
 h1 {
-	font-family: "Wavey";
 	color: black;
 	font-size: 3vw !important;
 	line-height: 3vw !important;
@@ -590,7 +600,7 @@ h5 {
 
 	h1 {
 		font-size: 5.4vh !important;
-		line-height: 5.4vh !important;
+		line-height: 5.6vh !important;
 	}
 
     #error-popup, #status-popup, #discord-popup, #stake-popup, #confirm-popup {
