@@ -459,6 +459,15 @@ h4 {
         height: initial;
     }
 
+    .warning-icon {
+        width: 7%;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+    }
+    
+
     #approval, #discord-warning {
         width: 90%;
     }
