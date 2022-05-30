@@ -18,12 +18,19 @@
     width: 45%;
     margin-top: 20px;
     font-family: "Korto";
-    background-image: linear-gradient(to bottom, rgba(245, 245, 7, 0.567), rgba(245, 245, 7, 0.567));
+    /* background-image: linear-gradient(to bottom, rgba(245, 245, 7, 0.567), rgba(245, 245, 7, 0.567)); */
+	background-color: var(--active-color) !important;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+#approval .button:hover, #discord-warning .button:hover {
+    background-color: black !important;
+    opacity: .7;
+
 }
 
 .guard {
