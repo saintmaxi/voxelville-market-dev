@@ -1,6 +1,7 @@
 h2 {
     margin-top: 1.5vw !important;
     margin-bottom:1.5vw !important;
+    color: var(--text-color);
 }
 
 #your-wl-spots {
@@ -13,7 +14,7 @@ h2 {
     min-height: 20vh;
     max-height: 50vh;
     overflow-y: scroll;
-    border: .5vw black solid;
+    /* border: 1px black solid; */
     border-radius: 20px;
     margin: auto;
     text-align: center;
@@ -23,8 +24,12 @@ h2 {
     line-height: 1.2vw;
 }
 
+#mint * {
+    color: var(--text-color) !important;
+}
+
 input {
-    border: .5vw black solid;
+    /* border: .5vw black solid; */
     border-radius: 15px;
     text-align: center;
     font-size: 2vw;
@@ -37,12 +42,12 @@ input {
 }
 
 select {
-    border: .5vw black solid;
-    border-radius: 15px;
+    /* border: .5vw black solid; */
+    /* border-radius: 15px; */
     text-align: center;
     font-size: 1.5vw;
     line-height: 2vw;
-    width: 75%;
+    width: 55%;
     margin-bottom: 2vw;
 }
 
@@ -51,11 +56,11 @@ select {
 }
 
 #download-link {
-    width: 5%;
+    width: 2%;
 }
 
 #download-button {
-    width: 5%;
+    width: 2%;
 }
 
 @media screen and (max-width: 991px) {
@@ -85,7 +90,7 @@ select {
     input, select {
         font-size: 3vh;
         line-height: 3vh;
-        border-width: 5px;
+        /* border-width: 5px; */
         width: 98%;
     }
 
@@ -103,5 +108,13 @@ select {
         height: 2vh;
     }
 
+    #download-link {
+        width: 4%;
+    }
+    
+    #download-button {
+        width: 4%;
+    }
+    
 
 }

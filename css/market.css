@@ -35,7 +35,7 @@
 }
 
 .approval-text .inside-text {
-    color: black;
+    color: black !important;
     text-align: center;
 
 }
@@ -228,7 +228,7 @@
 h3 {
     font-size: 1.5vw;
     line-height: 1.6vw;
-    color: black;
+    color: var(--text-color) !important;
     margin-top: 1.5vw;
 }
 
@@ -244,14 +244,14 @@ h4 {
     font-size: 1.2vw;
     line-height: 1.3vw;
     font-family: "Korto Ultra";
-    color: black;
+    color: var(--text-color) !important;
 }
 
 .inside-text {
     font-family: 'Korto';
     font-size: 1.1vw;
     line-height: 1.3vw;
-    color: white;
+    color: var(--text-color) !important;
 }
 
 #mint-prompt {
