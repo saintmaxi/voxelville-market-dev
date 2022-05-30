@@ -209,7 +209,7 @@
 }
 
 #copyright-div  a:hover {
-	color: #F5CD03;
+	color: var(--active-color);
 }
 
 #copyright-div img {

@@ -3,7 +3,7 @@
 	src: URL('../css/pixels.ttf') format('truetype');
 }  
 
-@font-face {  
+/* @font-face {  
 	font-family: 'Korto';
 	src: URL('../css/korto-medium.ttf') format('truetype');
 }  
@@ -11,7 +11,22 @@
 @font-face {  
 	font-family: 'Korto Ultra';
 	src: URL('../css/korto-ultra.ttf') format('truetype');
+}   */
+
+@font-face {  
+	font-family: 'Korto';
+	src: URL('../css/mundo-sans-regular.otf') format('truetype');
 }  
+
+@font-face {  
+	font-family: 'Korto Ultra';
+	src: URL('../css/mundo-sans-regular.otf') format('truetype');
+}  
+
+:root {
+	--active-color: #98B2E0;
+	--text-color: #0E2D4A;
+}
 
 .right-number, .left-number {
 	font-family: 'Korto Ultra';
@@ -19,7 +34,7 @@
 
 .link.active {
 	background-color: transparent;
-	color: #F5CD03 !important;
+	color: var(--active-color) !important;
 }
 
 html, body {
@@ -44,7 +59,7 @@ html, body {
 	align-items: center;
 	padding: 15px;
 	/* border-radius: 20px; */
-	background: white;
+    background-color: rgb(248, 242, 242);
 	color: black;
 	border: 1px solid black;
 	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -240,10 +255,10 @@ p {
 .button {
 	touch-action: manipulation;
 	background-color: black;
-    border: .3vw black solid;
+    /* border: 1px black solid; */
 	color: white;
 	font-size: 1.4vw;
-	line-height: 1.7vw;
+	line-height: 2.3vw;
 	padding: .5vw;
 	/* border-radius: 5px; */
     font-family: "Korto Ultra";
@@ -261,15 +276,15 @@ p {
 }
 
 .title-link:hover {
-	color: #F5CD03;
+	color: var(--active-color);
 }
 
 .button:hover {
-	background-color: #F5CD03;
+	background-color: var(--active-color);
 }
 
 .link:hover {
-	color: #F5CD03;
+	color: var(--active-color);
 }
 
 .section-title{
@@ -310,14 +325,14 @@ h5 {
     width: 100%;
     text-decoration: none;
     height: 5%;
-    background-color: #447CFC;
-    border: solid white .3em;
+    background-color: var(--active-color);
+    border: solid white 1px;
     color: white;
     font-size: 1.2vw;
     line-height: 1.5vw;
     padding: 20px;
     text-align: center;
-    border-radius: .2em;
+    /* border-radius: .2em; */
 }
 
 .etherscan-link {
@@ -326,7 +341,7 @@ h5 {
 
 
 #loading-popup {
-    border: solid .5vw white;
+    border: solid 1px white;
     background-color: #447CFC;
     padding:5vw;
     z-index: 99999;
@@ -335,7 +350,7 @@ h5 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 33vw;
-    border-radius: .2em;
+    /* border-radius: .2em; */
     text-align: center;
     box-shadow: 0 0 5000px 5000px rgba(0,0,0,0.88);
 }
@@ -349,8 +364,8 @@ h5 {
     transform: translate(-50%, -50%);
     width: 53vw;
     height: 35vh;
-    border: solid .5vw black;
-    border-radius: .2em;
+    border: solid 1px black;
+    /* border-radius: .2em; */
     text-align: center;
     box-shadow: 0 0 5000px 5000px rgba(0,0,0,0.88);
 }
@@ -409,7 +424,7 @@ h5 {
   
   #discord-popup #content input, #stake-popup #content input, #confirm-popup #content input {
 	text-align: center;
-	border: solid black .5vw;
+	/* border: solid black 1px; */
 	font-family: "Korto";
   }
   
@@ -470,11 +485,10 @@ h5 {
 	border-color: black;
 	border-radius: 20px;
 	border-width: .5vw; */
-    background-image: linear-gradient(to bottom right, rgb(184, 179, 179) 0%, white 40%);
-
+    /* background-image: linear-gradient(to bottom right, rgb(184, 179, 179) 0%, white 40%); */
+    background-color: rgb(248, 242, 242);
 	padding: 20px;
 	backdrop-filter: blur(25px);
-    background-color: white;
 }
 
 .box2 {
@@ -498,7 +512,7 @@ h5 {
 	}
 
 	.box {
-		border-width: 5px;
+		/* border-width: 1px; */
 	}
 
 
@@ -531,7 +545,7 @@ h5 {
 		font-size: 2.3vh;
 		line-height: 2.8vh ;	
 		padding: 5px;
-		border-width: 5px;
+		/* border-width: 5px; */
 		min-height: 9vh;
 	}
 
@@ -591,12 +605,12 @@ h5 {
       .loading-div {
         font-size: 4vw !important;
         line-height: 4.6vw !important;
-		border-width: 5px;
+		border-width: 1px;
       }
 
 	  #loading-popup {
         width: 75vw;
-		border-width: 5px;
+		border-width: 1px;
     }
 
 	h1 {
@@ -607,7 +621,7 @@ h5 {
     #error-popup, #status-popup, #discord-popup, #stake-popup, #confirm-popup {
         width: 75vw;
         height: 15vh;
-		border-width: 5px;
+		/* border-width: 1px; */
     }
 
 	#discord-popup {
@@ -643,7 +657,7 @@ h5 {
 	  }
 	
 	  #discord-popup #content input, #stake-popup #content input, #confirm-popup #content input {
-		border-width: 2px;
+		/* border-width: 2px; */
 		font-size: 4vw;
 		line-height: 4vw;
 	  }

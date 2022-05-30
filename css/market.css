@@ -56,7 +56,7 @@
 /* End approval section */
 
 .active {
-	background-color: #FDCD00;
+	background-color: var(--active-color);
 }
 
 #selector-div {
@@ -64,7 +64,7 @@
 }
 
 #selector-div button {
-    font-size: 3vw;
+    font-size: 2vw;
     line-height: 3vw;
     padding: 1vw;
     width: 20%;
@@ -136,7 +136,8 @@
     width: 22%;
     margin: 1%;
     /* background-color: rgba(255, 255, 255, 0.813); */
-    background-image: linear-gradient(to bottom right, rgb(184, 179, 179) 0%, white 40%);
+    /* background-image: linear-gradient(to bottom right, rgb(184, 179, 179) 0%, white 40%); */
+    background-color: rgb(248, 242, 242);
     text-align: center;
     display: -webkit-box;
     display: -webkit-flex;
