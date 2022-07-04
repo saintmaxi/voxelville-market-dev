@@ -1,4 +1,4 @@
-#coco-description {
+#vovi-description {
     margin:auto;
     text-align: center;
     font-family: 'Pixel';
@@ -17,7 +17,7 @@ h3 {
     line-height: 1.7vw !important;
 }
 
-#coco-balances {
+#vovi-balances {
     text-align: center;
     display: -webkit-box;
     display: -webkit-flex;
@@ -41,21 +41,21 @@ h3 {
     align-items: center;
 }
 
-.coco-balance-container {
+.vovi-balance-container {
     padding: 10px;
     margin-bottom: 10px;
     width: 39vw;
 }
 
-.coco-balance-container button {
+.vovi-balance-container button {
     width: 75%;
 }    
 
-#your-coco-container {
+#your-vovi-container {
     margin-right: 2vw;
 }
 
-#your-wavecatcher-section {
+#your-asset-section {
     width:80vw;
     margin: auto;
     text-align: center;
@@ -70,9 +70,10 @@ h3 {
     width: 90%;
 }
 
-#available-wavecatchers-images, #staked-wavecatchers-images {
-	border: solid black .5vw;
-	border-radius: 20px;
+#available-assets-images, #staked-assets-images {
+    background-color: rgb(248, 242, 242);
+	/* border: solid black .5vw; */
+	/* border-radius: 20px; */
     height: 50vh;
     overflow-y: scroll;
     text-align: center;
@@ -98,53 +99,53 @@ h3 {
     align-items: center;
 }
 
-.your-wavecatcher {
+.your-asset {
     width: 20%;
     font-size: 1.3vw;
     margin: 10px;
     transition: transform ease 300ms;
 }
 
-.your-wavecatcher img {
-    border: solid black .5vw;
-	border-radius: 20px;
+.your-asset img {
+    border: solid black .2vw;
+	/* border-radius: 20px; */
     margin: 5px;
     background-color: black;
 }
 
-.your-wavecatcher .coco-icon {
+.your-asset .vovi-icon {
     border: none;
     width: 1.5vw;
     margin: 0;
     background-color: transparent;
 }
 
-.your-wavecatcher .coco-icon:hover {
+.your-asset .vovi-icon:hover {
     border: none;
 }
 
-.wavecatcher-id, .coco-earned {
+.asset-id, .vovi-earned {
     color: black;
     margin-bottom: 0px;
     padding: 0 !important;
     text-align: center;
   }
   
-.your-wavecatcher:hover {
+.your-asset:hover {
     transform: translate(0, -5px);
     cursor: pointer;
 }
 
-.your-wavecatcher:hover .wavecatcher-id, .your-wavecatcher:hover .coco-earned {
+.your-asset:hover .asset-id, .your-asset:hover .vovi-earned {
     color: var(--active-color) !important;
 }
 
-.your-wavecatcher:hover img {
+.your-asset:hover img {
     border-color: var(--active-color);
     cursor: pointer;
 }
 
-.your-wavecatcher .coco-icon {
+.your-asset .vovi-icon {
     margin-bottom: .2vw;
     margin-left: .2vw;
 }
@@ -162,7 +163,7 @@ h3 {
     color: var(--active-color) !important;
 }
 
-.wavecatcher-id {
+.asset-id {
     text-align: center;
     margin-top: 5px;
 }
@@ -221,7 +222,7 @@ h3 {
 
 @media screen and (max-width: 991px) {
 
-    #coco-description {
+    #vovi-description {
         margin:auto;
         text-align: center;
         width: 95%;
@@ -239,35 +240,35 @@ h3 {
         line-height: 2.8vh !important;
     }
 
-    .coco-balance-container {
+    .vovi-balance-container {
         width: 95vw;
     }
 
-    .coco-balance-container h2 {
+    .vovi-balance-container h2 {
         font-size: 3.2vh;
         line-height: 3.2vh !important;
     }    
 
-    .coco-balance-container button {
+    .vovi-balance-container button {
         width: 95%;
         font-size: 2.5vh;
         padding: 20px;
     }    
 
-    #your-coco-container {
+    #your-vovi-container {
         margin-right: initial;
     }
 
-    #your-coco, #claimable-coco {
+    #your-vovi, #claimable-vovi {
         font-size: 5vh;
         line-height: 5vh;
     }
 
-    .coco-balance-container .coco-icon {
+    .vovi-balance-container .vovi-icon {
         width: 5vh;
     }
 
-    #your-wavecatcher-section {
+    #your-asset-section {
         width:95vw;
         min-height: 0;
         margin: auto;
@@ -284,13 +285,13 @@ h3 {
         margin: 2.5%;
     }
 
-    #staked-wavecatcher-wrapper {
+    #staked-asset-wrapper {
         margin-top: 30px;
     }
 
-    #available-wavecatchers-images, #staked-wavecatchers-images {
+    #available-assets-images, #staked-assets-images {
         width: 100%;
-        border-width: 5px;
+        /* border-width: 5px; */
         height: 60vh;
         text-align: center;
         display: -webkit-box;
@@ -319,15 +320,15 @@ h3 {
         padding: 20px;
     }
 
-    .your-wavecatcher {
+    .your-asset {
         width: 41%;
     }
 
-    .your-wavecatcher img {
-        border-width: 5px;
+    .your-asset img {
+        border-width: 2px;
     }
 
-    .your-wavecatcher .coco-icon {
+    .your-asset .vovi-icon {
         border: none;
         width: 3vh;
         margin: 0;
@@ -335,7 +336,7 @@ h3 {
         margin-left: 4px;
     }
 
-    .wavecatcher-id, .coco-earned {
+    .asset-id, .vovi-earned {
           font-size: 3vh;
           line-height: 3.2vh;
     }
@@ -344,12 +345,12 @@ h3 {
         border: solid 5px var(--active-color);;
     }
 
-    .your-wavecatcher:hover img {
+    .your-asset:hover img {
         border: solid 5px var(--active-color);;
         cursor: pointer;
     }
 
-    .your-wavecatcher:hover .coco-icon {
+    .your-asset:hover .vovi-icon {
         border: none;
     }
 }
