@@ -341,9 +341,9 @@ const openStakingPrompt = async() => {
                                     <img class="staking-plot-img" src="${plotIDtoURL.get(plot)}">
                                     <p>Plot #${plot}</p>
                                 </div>
-                                <img class="arrow" src="../images/double-arrow.png">
+                                <img class="arrow" src="./images/double-arrow.png">
                                 <div class="staking-avatar" id="staking-avatar-${plot}">
-                                    <img class="staking-avatar-img" id="avatar-plot-${plot}" src="../images/hidden.png">
+                                    <img class="staking-avatar-img" id="avatar-plot-${plot}" src="./images/hidden.png">
                                     <select class="staking-avatar-selection" onchange="setProposedStakedAvatar(${plot}, this.value)">
                                         <option value="0">
                                             None
