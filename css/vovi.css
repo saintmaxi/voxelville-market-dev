@@ -477,8 +477,8 @@ h3 {
     }
 
     .asset-id, .vovi-earned {
-          font-size: 3vh;
-          line-height: 3.2vh;
+          font-size: 2.4vh !important;
+          line-height: 2.8vh !important;
     }
 
     .active img {

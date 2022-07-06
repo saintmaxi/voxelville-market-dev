@@ -56,7 +56,7 @@ const voviImgURL = "https://bloodstainedritualofthenight.wiki.fextralife.com/fil
 /*********************************END CONFIG************************************/
 
 if (window.ethereum == undefined) {
-    displayErrorMessage('Use a web3 enabled browser to claim $COCO!');
+    displayErrorMessage('Use a web3 enabled browser to stake!');
     $("#available-assets-images").empty();
     $("#available-assets-images").append("<br><h3>No tokens available...</h3>");
 }
