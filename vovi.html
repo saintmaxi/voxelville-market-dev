@@ -150,17 +150,33 @@
       </div>
    </div>
    <div id="your-asset-section" class="container box">
-      <div id="staked-asset-wrapper" class="staking-section">
-         <h2 class="text-primary">YOUR PLOTS (<span id="your-assets-num"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>)</h2>
-         <!-- <div class="stake-buttons">
-            <button id="unstakeSelectedButton" href="#" class="button" onclick="claimByIds()">CLAIM SELECTED</button>
-            <button id="unstakeallButton" href="#" class="button" onclick="claimAll()">CLAIM ALL</button>
-         </div>-->
+      <div class="staking-section asset-wrapper">
+         <h2 class="text-primary">UNSTAKED PLOTS (<span id="your-assets-num"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>)</h2>
+         <div class="stake-buttons">
+            <button id="stakeSelectedButton" href="#" class="button" onclick="openStakingPrompt()">STAKE</button>
+            <!-- <button id="stakeAllButton" href="#" class="button" onclick="stakeAll()">STAKE ALL</button> -->
+         </div>
+         <div style="text-align: center;">
+            <h3 class="selected">Selected:</h3>
+            <h3 class="selected" id="selected-for-staking">None</h3>
+         </div> 
+         <div id="available-assets-images" style="margin-top:0;width:100%;">
+            <h3>Searching <span class="hide-on-mobile">for plots</span><span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>
+         </div>
+      </div>
+      <div class="staking-section asset-wrapper">
+         <h2 class="text-primary">STAKED PLOTS (<span id="your-staked-assets-num"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>)</h2>
+         <div class="stake-buttons">
+            <button id="claimSelectedButton" href="#" class="button" onclick="claimByIds()">CLAIM</button>
+            <!-- <button id="claimAllButton" href="#" class="button" onclick="claimAll()">CLAIM ALL</button><br> -->
+            <button id="unstakeSelectedButton" href="#" class="button" onclick="unstakeByIds()">UNSTAKE</button>
+            <!-- <button id="unstakeAllButton" href="#" class="button" onclick="unstakeAll()">UNSTAKE ALL</button> -->
+         </div>
          <div style="text-align: center;">
             <h3 class="selected">Selected:</h3>
             <h3 class="selected" id="selected-for-unstaking">None</h3>
          </div> 
-         <div id="available-assets-images" style="margin-top:0;width:100%;">
+         <div id="staked-assets-images" style="margin-top:0;width:100%;">
             <h3>Searching <span class="hide-on-mobile">for plots</span><span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>
          </div>
       </div>

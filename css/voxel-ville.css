@@ -374,10 +374,6 @@ h5 {
     height: 50vh;
 }
 
-#stake-popup {
-	height: 40vh;
-}
-
 #confirm-popup {
 	height: 50vh;
 }
@@ -650,7 +646,7 @@ h5 {
 		line-height: 3vh !important;
 	}
 
-	#discord-popup p, #stake-popup p, #confirm-popup p {
+	#discord-popup p, #confirm-popup p {
 		padding: 0;
 		margin: auto !important;
 		margin-bottom: 3%;

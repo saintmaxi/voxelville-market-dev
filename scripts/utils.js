@@ -15,6 +15,15 @@ async function displayErrorMessage(message, timed=true) {
     }
 }
 
+async function displayStatusMessage(message) {
+    if (!($("#status-popup").length)) {
+        let fakeJSX = `<div id="status-popup"><p>${message}</p></div>`;
+        $("body").append(fakeJSX);
+        let height = $(document).height();
+        $("body").append(`<div id='block-screen-status' style="height:${height}px"></div>`);
+    }
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

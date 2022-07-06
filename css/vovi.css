@@ -17,6 +17,75 @@ h3 {
     line-height: 1.7vw !important;
 }
 
+/* Staking Popup Stuff */
+
+#stake-popup {
+	height: 90vh;
+	width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+.arrow {
+    width: 30%;
+}
+
+#inner-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+#staking-row-wrapper {
+    text-align: center;
+    height: 80%;
+    overflow-y: scroll;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+#button-wrapper {
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-wrapper button {
+    width: 50%;
+}
+
+.staking-row {
+    margin-top: 2vw !important;
+    margin-bottom: 2vw !important;
+    width: 65%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.staking-plot, .staking-avatar {
+    width: 25%;
+}
+
+.staking-plot p, .staking-avatar select {
+    padding: 0 !important;
+    margin-top: 10px !important;
+}
+
+.staking-avatar select {
+    text-align: center;
+    font-size: 1.9vw !important;
+    line-height: 2vw !important;
+    width: 100%;
+}
+
+/* End staking popup stuff */
+
 #vovi-balances {
     text-align: center;
     display: -webkit-box;
@@ -74,7 +143,7 @@ h3 {
     background-color: rgb(248, 242, 242);
 	/* border: solid black .5vw; */
 	/* border-radius: 20px; */
-    height: 50vh;
+    /* height: 50vh; */
     overflow-y: scroll;
     text-align: center;
     display: -webkit-box;
@@ -100,8 +169,7 @@ h3 {
 }
 
 .your-asset {
-    width: 20%;
-    font-size: 1.3vw;
+    width: 33%;
     margin: 10px;
     transition: transform ease 300ms;
 }
@@ -222,6 +290,78 @@ h3 {
 
 @media screen and (max-width: 991px) {
 
+    /* Staking Popup Stuff */
+
+    #stake-popup {
+        height: 95vh;
+        width: 95vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+    }
+
+    #inner-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+
+    .arrow {
+        width: 20%;
+    }
+
+    #staking-row-wrapper {
+        text-align: center;
+        height: 75%;
+        overflow-y: scroll;
+        border-top: solid 1px black;
+        border-bottom: solid 1px black;
+    }
+
+    #button-wrapper {
+        height: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #button-wrapper button {
+        width: 50%;
+        min-height: 7vh;
+    }
+
+    .staking-row {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .staking-plot, .staking-avatar {
+        width: 35%;
+    }
+
+    .staking-plot p, .staking-avatar select {
+        padding: 0 !important;
+        margin-top: 5px !important;
+        font-size: 3vh !important;
+        line-height: 3vh !important;
+    }
+
+    .staking-avatar select {
+        text-align: center;
+        font-size: 3vh !important;
+        line-height: 3vh !important;
+        width: 100%;
+    }
+
+    /* End staking popup stuff */
+
     #vovi-description {
         margin:auto;
         text-align: center;
@@ -285,7 +425,7 @@ h3 {
         margin: 2.5%;
     }
 
-    #staked-asset-wrapper {
+    .asset-wrapper {
         margin-top: 30px;
     }
 
