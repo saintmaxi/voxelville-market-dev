@@ -203,21 +203,30 @@ const getVoviBalance = async()=>{
     $("#your-vovi").html(`${(Number(formatEther(voviBalance))).toFixed(2)}`);
 };
 
-const getRewardsForId = async(project, id) => {
+const getRewardsForId = async(project, id, staked) => {
     let response = await fetch(`${voviAPIBase}/nfts/${project}/${id}`).then(res => res.json());
-    let tokens = Number(Number(formatEther(response["tokens"])).toFixed(2));
-    return tokens;
+    if (!staked) {
+        let tokens = Number(Number(formatEther(response["tokens"])).toFixed(2));
+        return tokens;
+    }
+    else {
+        let tokenID = response["tokenId"];
+        let tokens = response["tokens"];
+        let coupon = response["coupon"];
+        let rewards = await vovi.calculateStakingRewards(id, [tokenID, tokens, [coupon["r"], coupon["s"], coupon["v"]]]);
+        return Number(Number(formatEther(rewards)).toFixed(2));
+    }
 }
 
 /**TO DO: rewards calculation */
 const getPendingVoviBalance = async()=>{ // need to add up by total of each token
     let pendingVovi = 0;
     for (plotID of stakedPlots) {
-        let tokensEarned = await getRewardsForId("voxelVille", plotID);
-        let stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
-        if (stakedAvatarID != 0) {
-            tokensEarned += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
-        }
+        let tokensEarned = await getRewardsForId("voxelVille", plotID, staked);
+        // let stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
+        // if (stakedAvatarID != 0) {
+        //     tokensEarned += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
+        // }
         pendingVovi += tokensEarned;
     }
     $("#claimable-vovi").html(`${pendingVovi.toFixed(2)}`);
@@ -472,7 +481,7 @@ const getAssetImages = async()=>{
             }
 
             // ~6450 blocks per day * per block rewards rate
-            let earnRate = 6450 * (await getRewardsForId("voxelVille", plotID));
+            let earnRate = 6450 * (await getRewardsForId("voxelVille", plotID, false));
 
             batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForStaking(${plotID})"><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">~ ${earnRate}</span><img src="${voviImgURL}" class="vovi-icon">/day</p></div>`        
             
@@ -495,13 +504,13 @@ const getAssetImages = async()=>{
             if (selectedForUnstaking.has(Number(plotID))) {
                 active = "active";
             }
-            let voviEarned = await getRewardsForId("voxelVille", plotID);
-            stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
-            if (stakedAvatarID != 0) {
-                voviEarned += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
-            }
+            let voviEarned = await getRewardsForId("voxelVille", plotID, true);
+            // stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
+            // if (stakedAvatarID != 0) {
+            //     voviEarned += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
+            // }
 
-            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForUntaking(${plotID})"><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned">Staked Avatar: ${stakedAvatarID != 0 ? "#" + stakedAvatarID : "None"}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">${voviEarned}</span><img src="${voviImgURL}" class="vovi-icon"></p></div>`        
+            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForUntaking(${plotID})"><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned">Avatar: ${stakedAvatarID != 0 ? "#" + stakedAvatarID : "None"}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">${voviEarned}</span><img src="${voviImgURL}" class="vovi-icon"></p></div>`        
             
         };
         $("#staked-assets-images").empty();
@@ -513,11 +522,11 @@ const getAssetImages = async()=>{
 const updateVoviEarned = async() => {
     for (let i = 0; i < stakedPlots.length; i++) {
         let plotID = Number(stakedPlots[i]);
-        let voviEarnedByID = await getRewardsForId("voxelVille", plotID);
-        let stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
-        if (stakedAvatarID != 0) {
-            voviEarnedByID += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
-        }
+        let voviEarnedByID = await getRewardsForId("voxelVille", plotID, true);
+        // let stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
+        // if (stakedAvatarID != 0) {
+        //     voviEarnedByID += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
+        // }
         $(`#vovi-earned-${plotID}`).html(`${voviEarnedByID}`);
     };
 };
