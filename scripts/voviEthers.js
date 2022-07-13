@@ -102,7 +102,7 @@ const importVoviToWallet = async() => {
       });
 }
 
-// COCO Functions
+// VOVI Functions
 
 const getVoxelVilleEnum = async()=>{
     let userAddress = await getAddress();
@@ -277,21 +277,29 @@ const claimAll = async() => {
 
 // TODO - get stake requests to work
 const getStakeRequests = async(plotIDs) => { 
+
+    let chainID = await getChainId();
+
+    const options = {
+        method: 'GET',
+        headers: {Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0'}
+    };
+
     try {
         await displayStatusMessage(`Generating request<span class="one">.</span><span class="two">.</span><span class="three">.</span></span>`);
         let userAddress = await getAddress();
         let stakeRequests = [];
         for (plotID of plotIDs) {
-            console.log(plotID)
-            let plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`).then(res => res.json());
+            let plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             let avatarResponse = null;
             let avatarID = null;
             let avatarTxDate = null;
             let listedAvatar = null;
             let avatarCoupon = [null, null, null];
             let proposedAvatarToStake = proposedStakedPlotsToAvatars.get(plotID);
-            if (proposedAvatarToStake != undefined) {
-                avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`).then(res => res.json());
+            console.log(proposedAvatarToStake)
+            if (proposedAvatarToStake) {
+                avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`, options).then(res => res.json());
                 console.log(avatarResponse)
                 console.log(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`)
                 avatarID = avatarResponse["tokenId"];
@@ -376,7 +384,7 @@ const openStakingPrompt = async() => {
                     </div>`;
             $("body").append(fakeJSX);
             let height = $(document).height();
-            $("body").append(`<div id='block-screen-stake' style="height:${height}px" onclick="$('#stake-popup').remove();$('#block-screen-stake').remove()"></div>`);
+            $("body").append(`<div id='block-screen-stake' style="height:${height}px" onclick="$('#stake-popup').remove();$('#block-screen-stake').remove();proposedStakedPlotsToAvatars = new Map()"></div>`);
         }
     }
 
