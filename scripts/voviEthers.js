@@ -291,17 +291,21 @@ const getStakeRequests = async(plotIDs) => {
         let stakeRequests = [];
         for (plotID of plotIDs) {
             let plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
+            while (jQuery.isEmptyObject(plotResponse)) {
+                console.log("retrying Plot API fetch");
+                plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
+            }
             let avatarResponse = null;
-            let avatarID = null;
-            let avatarTxDate = null;
-            let listedAvatar = null;
-            let avatarCoupon = [null, null, null];
+            let avatarID = 0;
+            let avatarTxDate = 0;
+            let listedAvatar = 0;
+            let avatarCoupon = [ethers.utils.formatBytes32String(""), ethers.utils.formatBytes32String(""), 0];
             let proposedAvatarToStake = proposedStakedPlotsToAvatars.get(plotID);
-            console.log(proposedAvatarToStake)
             if (proposedAvatarToStake) {
-                avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`, options).then(res => res.json());
-                console.log(avatarResponse)
-                console.log(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`)
+                while (jQuery.isEmptyObject(avatarResponse)) {
+                    console.log("retrying avatar API fetch");
+                    avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`, options).then(res => res.json());
+                }
                 avatarID = avatarResponse["tokenId"];
                 avatarTxDate = avatarResponse["lastTx"];
                 listedAvatar = avatarResponse["listed"];
@@ -513,7 +517,7 @@ const getAssetImages = async()=>{
                 active = "active";
             }
             let voviEarned = await getRewardsForId("voxelVille", plotID, true);
-            // stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
+            stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
             // if (stakedAvatarID != 0) {
             //     voviEarned += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
             // }
