@@ -36,7 +36,7 @@ const voxelVilleAbi = () => {
 };
 
 const voxelVilleAvatarsAddress = "0x7e3d57Daa6152023E52E5E418e4BD9EE2D51F4ec";
-const voxelVilleAvatarsAbi = () => { 
+const voxelVilleAvatarsAbi = () => {
     return `[{"inputs":[{"internalType":"address","name":"_adminSignerAddress","type":"address"},{"internalType":"address","name":"_voxelVilleContractAddress","type":"address"},{"internalType":"address","name":"_retiredContract","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"string","name":"baseURI","type":"string"}],"name":"BaseURI","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"enum VoxelVilleAvatars.SalePhase","name":"salePhase","type":"uint8"}],"name":"CurrentPhase","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"totalSupply","type":"uint256"}],"name":"TotalSupplyRemaining","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"MAX_SUPPLY","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"PRICE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"components":[{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"},{"internalType":"uint8","name":"v","type":"uint8"}],"internalType":"struct VoxelVilleAvatars.Coupon","name":"coupon","type":"tuple"},{"internalType":"uint8","name":"allocated","type":"uint8"},{"internalType":"uint8","name":"count","type":"uint8"}],"name":"airdropMint","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"airdroppedTokens","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"allowList","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"baseURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getCurrentPhase","outputs":[{"internalType":"enum VoxelVilleAvatars.SalePhase","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"},{"internalType":"uint8","name":"v","type":"uint8"}],"internalType":"struct VoxelVilleAvatars.Coupon","name":"coupon","type":"tuple"},{"internalType":"enum VoxelVilleAvatars.CouponType","name":"couponType","type":"uint8"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"numberMinted","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"_data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"bool","name":"approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_URI","type":"string"}],"name":"setBaseURI","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"enum VoxelVilleAvatars.SalePhase","name":"salePhase","type":"uint8"}],"name":"setSalePhase","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupplyRemaining","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"from","type":"uint256"},{"internalType":"uint256","name":"to","type":"uint256"}],"name":"transferLegacyNFTs","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
 };
 
@@ -61,56 +61,56 @@ if (window.ethereum == undefined) {
     $("#available-assets-images").append("<br><h3>No tokens available...</h3>");
 }
 
-const provider = new ethers.providers.Web3Provider(window.ethereum,"any");
+const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 const signer = provider.getSigner();
 const voxelVille = new ethers.Contract(voxelVilleAddress, voxelVilleAbi(), signer);
 const voxelVilleAvatars = new ethers.Contract(voxelVilleAvatarsAddress, voxelVilleAvatarsAbi(), signer);
 const vovi = new ethers.Contract(voviAddress, voviAbi(), signer);
 
-const connect = async()=>{
+const connect = async () => {
     await provider.send("eth_requestAccounts", []);
 };
 
-const getAddress = async()=>{
+const getAddress = async () => {
     return await signer.getAddress()
 };
 
-const formatEther = (balance_)=>{
+const formatEther = (balance_) => {
     return ethers.utils.formatEther(balance_)
 };
 
-const parseEther = (eth_)=>{
+const parseEther = (eth_) => {
     return ethers.utils.parseEther(eth_)
 };
 
-const getChainId = async()=>{
+const getChainId = async () => {
     return await signer.getChainId()
 };
 
-const importVoviToWallet = async() => {
+const importVoviToWallet = async () => {
     ethereum.request({
         method: 'wallet_watchAsset',
         params: {
-          type: 'ERC20',
-          options: {
-            address: voviAddress,
-            symbol: 'VOVI',
-            decimals: 18,
-            image: voviImgURL,
-          },
+            type: 'ERC20',
+            options: {
+                address: voviAddress,
+                symbol: 'VOVI',
+                decimals: 18,
+                image: voviImgURL,
+            },
         },
-      });
+    });
 }
 
 // VOVI Functions
 
-const getVoxelVilleEnum = async()=>{
+const getVoxelVilleEnum = async () => {
     let userAddress = await getAddress();
     let totalVoxelVille = await voxelVille.balanceOf(userAddress);
     return totalVoxelVille;
 };
 
-const getVoxelVilleAvatarsEnum = async()=>{
+const getVoxelVilleAvatarsEnum = async () => {
     let userAddress = await getAddress();
     let totalVoxelVilleAvatars = await voxelVilleAvatars.balanceOf(userAddress);
     return totalVoxelVilleAvatars;
@@ -125,7 +125,7 @@ let stakedAvatars = [];
 let stakedPlotsToAvatars = new Map();
 let proposedStakedPlotsToAvatars = new Map();
 
-const getWalletLinks = async() => {
+const getWalletLinks = async () => {
     let userAddress = await getAddress();
     let response = await fetch(`${voviAPIBase}/wallets?walletAddress=${userAddress}`).then(res => res.json());
     let links = [];
@@ -136,18 +136,18 @@ const getWalletLinks = async() => {
     return links;
 }
 
-const getAllPlotsOwned = async() => {
+const getAllPlotsOwned = async () => {
     let userAddress = await getAddress();
     let chainID = await getChainId();
     let ownedPlotIDs = [];
 
     const options = {
         method: 'GET',
-        headers: {Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0'}
+        headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
-    
+
     let response = await fetch(`${openseaAPIBase}?owner=${userAddress}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false`, options).then(res => res.json())
-    
+
     for (let asset of response["assets"]) {
         let id = Number(asset["token_id"])
         ownedPlotIDs.push(id);
@@ -173,18 +173,18 @@ const getAllPlotsOwned = async() => {
     return [...ownedPlotIDs].sort((a, b) => a - b);
 }
 
-const getAllAvatarsOwned = async() => {
+const getAllAvatarsOwned = async () => {
     let userAddress = await getAddress();
     let chainID = await getChainId();
     let ownedAvatarIDs = [];
 
     const options = {
         method: 'GET',
-        headers: {Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0'}
+        headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
-    
+
     let response = await fetch(`${openseaAPIBase}?owner=${userAddress}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false`, options).then(res => res.json())
-    
+
     for (let asset of response["assets"]) {
         let id = Number(asset["token_id"])
         ownedAvatarIDs.push(id);
@@ -197,13 +197,13 @@ const getAllAvatarsOwned = async() => {
     return [...ownedAvatarIDs].sort((a, b) => a - b);
 }
 
-const getVoviBalance = async()=>{
+const getVoviBalance = async () => {
     let userAddress = await getAddress();
     let voviBalance = await vovi.balanceOf(userAddress);
     $("#your-vovi").html(`${(Number(formatEther(voviBalance))).toFixed(2)}`);
 };
 
-const getRewardsForId = async(project, id, staked) => {
+const getRewardsForId = async (project, id, staked) => {
     let response = await fetch(`${voviAPIBase}/nfts/${project}/${id}`).then(res => res.json());
     if (!staked) {
         let tokens = Number(Number(formatEther(response["tokens"])).toFixed(2));
@@ -219,7 +219,7 @@ const getRewardsForId = async(project, id, staked) => {
 }
 
 /**TO DO: rewards calculation */
-const getPendingVoviBalance = async()=>{ // need to add up by total of each token
+const getPendingVoviBalance = async () => { // need to add up by total of each token
     let pendingVovi = 0;
     for (plotID of stakedPlots) {
         let tokensEarned = await getRewardsForId("voxelVille", plotID, staked);
@@ -232,14 +232,14 @@ const getPendingVoviBalance = async()=>{ // need to add up by total of each toke
     $("#claimable-vovi").html(`${pendingVovi.toFixed(2)}`);
 };
 
-const getClaimRequests = async(ids) => { 
+const getClaimRequests = async (ids) => {
     let claimRequests = [];
     for (id of ids) {
 
     }
 }
 
-const claimByIds = async()=>{
+const claimByIds = async () => {
     if (selectedForUnstaking.size == 0) {
         displayErrorMessage("Select at least 1 plot to claim!")
     }
@@ -247,28 +247,28 @@ const claimByIds = async()=>{
         let links = await getWalletLinks();
         const plotArray = Array.from(selectedForUnstaking);
         let claimRequests = await getClaimRequests(plotArray);
-        await vovi.claimStakingRewards(links, claimRequests).then( async(tx_) => {
+        await vovi.claimStakingRewards(links, claimRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
             await waitForTransaction(tx_);
-        }); 
+        });
     }
 };
 
-const claimAll = async() => {
+const claimAll = async () => {
     if (stakedPlots.length == 0) {
         displayErrorMessage("No tokens to claim for!")
     }
     else {
         let links = await getWalletLinks();
         let claimRequests = await getClaimRequests(stakedPlots);
-        await vovi.claimStakingRewards(links, claimRequests).then( async(tx_) => {
+        await vovi.claimStakingRewards(links, claimRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
             await waitForTransaction(tx_);
-        }); 
+        });
     }
 };
 
@@ -276,13 +276,13 @@ const claimAll = async() => {
 
 
 // TODO - get stake requests to work
-const getStakeRequests = async(plotIDs) => { 
+const getStakeRequests = async (plotIDs) => {
 
     let chainID = await getChainId();
 
     const options = {
         method: 'GET',
-        headers: {Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0'}
+        headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
 
     try {
@@ -311,8 +311,8 @@ const getStakeRequests = async(plotIDs) => {
                 listedAvatar = avatarResponse["listed"];
                 avatarCoupon = avatarResponse["coupon"];
             }
-            stakeRequests.push([plotResponse["tokenId"], plotResponse["lastTx"], plotResponse["listed"], plotResponse["coupon"], 
-                                avatarID, avatarTxDate, listedAvatar, avatarCoupon]);
+            stakeRequests.push([plotResponse["tokenId"], plotResponse["lastTx"], plotResponse["listed"], plotResponse["coupon"],
+                avatarID, avatarTxDate, listedAvatar, avatarCoupon]);
         }
 
         $("#status-popup").remove();
@@ -320,7 +320,7 @@ const getStakeRequests = async(plotIDs) => {
 
         return stakeRequests;
     }
-    catch (error){
+    catch (error) {
         $("#status-popup").remove();
         $("#block-screen-status").remove();
         await displayErrorMessage("An error occurred. See console and window alert for details...")
@@ -329,7 +329,7 @@ const getStakeRequests = async(plotIDs) => {
     }
 }
 
-const setProposedStakedAvatar = async(plot, avatar) => {
+const setProposedStakedAvatar = async (plot, avatar) => {
     if (avatar > 0) {
         if (!(Array.from(proposedStakedPlotsToAvatars.values())).includes(avatar)) {
             proposedStakedPlotsToAvatars.set(plot, avatar);
@@ -342,7 +342,7 @@ const setProposedStakedAvatar = async(plot, avatar) => {
     }
 }
 
-const openStakingPrompt = async() => {
+const openStakingPrompt = async () => {
     if (!($("#stake-popup").length)) {
         if (selectedForStaking.size == 0) {
             displayErrorMessage("Select at least 1 plot to stake!")
@@ -351,7 +351,7 @@ const openStakingPrompt = async() => {
             let selectionJSX = "";
             let avatarOptsJSX = "";
             for (avatar of unstakedAvatars) {
-                avatarOptsJSX +=  `<option value="${avatar}">
+                avatarOptsJSX += `<option value="${avatar}">
                                         #${avatar}
                                     </option>`;
             }
@@ -377,6 +377,12 @@ const openStakingPrompt = async() => {
             }
             let fakeJSX = `<div id="stake-popup">
                             <div id="inner-wrapper">
+                                <svg id="close" onclick="$('#block-screen-stake').remove();$('#stake-popup').remove();" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                    <path fill="black"
+                                    d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z" />
+                                </svg>
                                 <h1>Select avatars to stake with plots.</h1>
                                 <div id="staking-row-wrapper">
                                     ${selectionJSX}
@@ -394,7 +400,7 @@ const openStakingPrompt = async() => {
 
 }
 
-const stakeByIds = async()=>{
+const stakeByIds = async () => {
     try {
         if (selectedForStaking.size == 0) {
             displayErrorMessage("Select at least 1 plot to stake!")
@@ -405,38 +411,118 @@ const stakeByIds = async()=>{
             let stakeRequests = await getStakeRequests(plotArray);
             console.log(links)
             console.log(stakeRequests)
-            await vovi.stakePlots(links, stakeRequests).then( async(tx_) => {
+            await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
                 selectedForStaking = new Set();
                 $("#selected-for-staking").text("None");
                 $(".active").removeClass("active");
                 await waitForTransaction(tx_);
-            }); 
+            });
         }
     }
     catch (error) {
-        await displayErrorMessage("An error occurred. See console and window alert for details...");
-        window.alert(error);
-        console.log(error);
+        if ((error.message).includes("This property cannot be staked yet")) {
+            await displayErrorMessage(`Error: This property cannot be staked yet!`)
+        }
+        else if ((error.message).includes("sender not owner")) {
+            await displayErrorMessage(`Error: You do not own this plot!`)
+        }
+        else if ((error.message).includes("Cannot stake listed property")) {
+            await displayErrorMessage(`Error: Cannot stake listed property!`)
+        }
+        else if ((error.message).includes("Last TX date for token could not be confirmed")) {
+            await displayErrorMessage(`Error: Could not determine last transaction date for plot!`)
+        }
+        else if ((error.message).includes("sender doesn't own avatar")) {
+            await displayErrorMessage(`Error: You do not own this avatar!`)
+        }
+        else if ((error.message).includes("Cannot stake listed avatar")) {
+            await displayErrorMessage(`Error: Cannot stake listed avatar!`)
+        }
+        else if ((error.message).includes("Avatar is already staked")) {
+            await displayErrorMessage(`Error: Avatar is already staked!`)
+        }
+        else if ((error.message).includes("Property already has an avatar staked")) {
+            await displayErrorMessage(`Error: Property already has staked avatar!`)
+        }
+        else if ((error.message).includes("Cannot verify last Avatar TX date")) {
+            await displayErrorMessage(`Error: Could not determine last transaction date for avatar!`)
+        }
+        else if ((error.message).includes("Wallet links do not include sender")) {
+            await displayErrorMessage(`Error: Wallet links do not include sender!`)
+        }
+        else if ((error.message).includes("Cannot confirm wallet linking")) {
+            await displayErrorMessage(`Error: Cannot confirm wallet linking!`)
+        }
+        else if ((error.message).includes("User denied transaction signature")) {
+            console.log("Transaction rejected.");
+        }
+        else if ((error.message).includes("User rejected the transaction")) {
+            console.log("Transaction rejected.");
+        }
+        else {
+            await displayErrorMessage("An error occurred. See console and window alert for details...");
+            window.alert(error);
+            console.log(error);
+        }
     }
 };
 
-const stakeAll = async() => {
-    if (unstakedPlots.length == 0) {
-        displayErrorMessage("No plots to stake!")
+const stakeAll = async () => {
+    try {
+        if (unstakedPlots.length == 0) {
+            displayErrorMessage("No plots to stake!")
+        }
+        else {
+            let links = await getWalletLinks();
+            let stakeRequests = await getStakeRequests(unstakedPlots);
+            await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
+                selectedForStaking = new Set();
+                $("#selected-for-staking").text("None");
+                $(".active").removeClass("active");
+                await waitForTransaction(tx_);
+            });
+        }
     }
-    else {
-        let links = await getWalletLinks();
-        let stakeRequests = await getStakeRequests(unstakedPlots);
-        await vovi.stakePlots(links, stakeRequests).then( async(tx_) => {
-            selectedForStaking = new Set();
-            $("#selected-for-staking").text("None");
-            $(".active").removeClass("active");
-            await waitForTransaction(tx_);
-        }); 
+    catch (error) {
+        if ((error.message).includes("amount prohibited")) {
+            await displayErrorMessage(`Error: Amount prohibited!`)
+        }
+        else if ((error.message).includes("Invalid reward coupon received")) {
+            await displayErrorMessage(`Error: Invalid reward coupon!`)
+        }
+        else if ((error.message).includes("Rewards not in correct order")) {
+            await displayErrorMessage(`Error: Rewards not in correct order!`)
+        }
+        else if ((error.message).includes("sender not owner")) {
+            await displayErrorMessage(`Error: You do not own this plot!`)
+        }
+        else if ((error.message).includes("token not staked")) {
+            await displayErrorMessage(`Error: Token not staked!`)
+        }
+        else if ((error.message).includes("Last TX date for token could not be confirmed")) {
+            await displayErrorMessage(`Error: Could not determine last transaction date for plot!`)
+        }
+        else if ((error.message).includes("Could not verify avatar TX Dates")) {
+            await displayErrorMessage(`Error: Could not determine last transaction date for avatar!`)
+        }
+        else if ((error.message).includes("Cannot confirm wallet linking")) {
+            await displayErrorMessage(`Error: Cannot confirm wallet linking!`)
+        }
+        else if ((error.message).includes("User denied transaction signature")) {
+            console.log("Transaction rejected.");
+        }
+        else if ((error.message).includes("User rejected the transaction")) {
+            console.log("Transaction rejected.");
+        }
+        else {
+            await displayErrorMessage("An error occurred. See console and window alert for details...");
+            window.alert(error);
+            console.log(error);
+        }
     }
 };
 
-const unstakeByIds = async()=>{
+const unstakeByIds = async () => {
     if (selectedForUnstaking.size == 0) {
         displayErrorMessage("Select at least 1 plot to unstake!")
     }
@@ -444,34 +530,34 @@ const unstakeByIds = async()=>{
         let links = await getWalletLinks();
         const plotArray = Array.from(selectedForUnstaking);
         let stakeRequests = await getStakeRequests(plotArray);
-        await vovi.stakePlots(links, stakeRequests).then( async(tx_) => {
+        await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
             await waitForTransaction(tx_);
-        }); 
+        });
     }
 };
 
-const unstakeAll = async() => {
+const unstakeAll = async () => {
     if (stakedPlots.length == 0) {
         displayErrorMessage("No plots to unstake!")
     }
     else {
         let links = await getWalletLinks();
         let stakeRequests = await getStakeRequests(stakedPlots);
-        await vovi.stakePlots(links, stakeRequests).then( async(tx_) => {
+        await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
             await waitForTransaction(tx_);
-        }); 
+        });
     }
 };
 
 var imagesLoaded = false;
 
-const getAssetImages = async()=>{
+const getAssetImages = async () => {
     $("#available-assets-images").empty();
     $("#available-assets-images").append(`<br><h3>Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
     $("#staked-assets-images").empty();
@@ -487,7 +573,7 @@ const getAssetImages = async()=>{
         let batchFakeJSX = "";
         for (let i = 0; i < unstakedPlots.length; i++) {
             let plotID = Number(unstakedPlots[i]);
-            let active= "";
+            let active = "";
             if (selectedForStaking.has(plotID)) {
                 active = "active";
             }
@@ -495,8 +581,8 @@ const getAssetImages = async()=>{
             // ~6450 blocks per day * per block rewards rate
             let earnRate = 6450 * (await getRewardsForId("voxelVille", plotID, false));
 
-            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForStaking(${plotID})"><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">~ ${earnRate}</span><img src="${voviImgURL}" class="vovi-icon">/day</p></div>`        
-            
+            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForStaking(${plotID})"><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">~ ${earnRate}</span><img src="${voviImgURL}" class="vovi-icon">/day</p></div>`
+
         };
         $("#available-assets-images").empty();
         $("#available-assets-images").append(batchFakeJSX);
@@ -512,7 +598,7 @@ const getAssetImages = async()=>{
         let stakedAvatarID;
         for (let i = 0; i < stakedPlots.length; i++) {
             let plotID = stakedPlots[i];
-            let active= "";
+            let active = "";
             if (selectedForUnstaking.has(Number(plotID))) {
                 active = "active";
             }
@@ -522,8 +608,8 @@ const getAssetImages = async()=>{
             //     voviEarned += await getRewardsForId("voxelVilleAvatars", stakedAvatarID);
             // }
 
-            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForUntaking(${plotID})"><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned">Avatar: ${stakedAvatarID != 0 ? "#" + stakedAvatarID : "None"}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">${voviEarned}</span><img src="${voviImgURL}" class="vovi-icon"></p></div>`        
-            
+            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForUntaking(${plotID})"><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned">Avatar: ${stakedAvatarID != 0 ? "#" + stakedAvatarID : "None"}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">${voviEarned}</span><img src="${voviImgURL}" class="vovi-icon"></p></div>`
+
         };
         $("#staked-assets-images").empty();
         $("#staked-assets-images").append(batchFakeJSX);
@@ -531,7 +617,7 @@ const getAssetImages = async()=>{
     imagesLoaded = true;
 }
 
-const updateVoviEarned = async() => {
+const updateVoviEarned = async () => {
     for (let i = 0; i < stakedPlots.length; i++) {
         let plotID = Number(stakedPlots[i]);
         let voviEarnedByID = await getRewardsForId("voxelVille", plotID, true);
@@ -543,7 +629,7 @@ const updateVoviEarned = async() => {
     };
 };
 
-const updateClaimingInfo = async()=>{
+const updateClaimingInfo = async () => {
     if ((await getChainId()) === correctChain) {
         await getAllAvatarsOwned();
         await sleep(1000);
@@ -564,7 +650,7 @@ const updateClaimingInfo = async()=>{
         }
         $("#error-popup").remove();
         $("#refresh-notification").remove();
-    } 
+    }
     else {
         $("#wallet").text(`Wrong Network!`);
         $("#available-assets-images").empty();
@@ -621,14 +707,14 @@ async function selectForUnstaking(id) {
 
 // General functions
 
-provider.on("network", async(newNetwork, oldNetwork) => {
+provider.on("network", async (newNetwork, oldNetwork) => {
     if (oldNetwork) {
         location.reload();
     }
 });
 
 // Processing tx returns
-const waitForTransaction = async(tx_) => {
+const waitForTransaction = async (tx_) => {
     startLoading(tx_);
     provider.once(tx_.hash, async (transaction_) => {
         await endLoading(tx_, transaction_.status);
@@ -646,7 +732,7 @@ else {
     pendingTxArray = Array.from(pendingTransactions);
     pendingTransactions = new Set();
 
-    for (let i =0; i < pendingTxArray.length; i++) {
+    for (let i = 0; i < pendingTxArray.length; i++) {
         waitForTransaction(pendingTxArray[i]);
     }
     localStorage.removeItem("VoviPendingTxs");
@@ -684,7 +770,7 @@ async function endLoading(tx, txStatus) {
     }
 }
 
-setInterval(async()=>{
+setInterval(async () => {
     await updateInfo();
     // await updateVoviEarned();
     await getPendingVoviBalance();
@@ -693,21 +779,21 @@ setInterval(async()=>{
 
 const updateInfo = async () => {
     let userAddress = await getAddress();
-    $("#account-text").html(`${userAddress.substr(0,7)}..`);
-    $("#mobile-account-text").html(`${userAddress.substr(0,12)}..`);
+    $("#account-text").html(`${userAddress.substr(0, 7)}..`);
+    $("#mobile-account-text").html(`${userAddress.substr(0, 12)}..`);
 };
 
-ethereum.on("accountsChanged", async(accounts_)=>{
+ethereum.on("accountsChanged", async (accounts_) => {
     location.reload();
 });
 
-window.onload = async()=>{
+window.onload = async () => {
     await updateInfo();
     if (pendingTransactions.size < 1) {
         await updateClaimingInfo();
     }
 };
 
-window.onunload = async()=>{
+window.onunload = async () => {
     cachePendingTransactions();
 }

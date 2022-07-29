@@ -1,9 +1,19 @@
 // a saintmaxi joint
 // onChainDiscordDirectory created by @0xInuarashi
 
-async function displayErrorMessage(message, timed=true) {
+async function displayErrorMessage(message, timed = true) {
     if (!($("#error-popup").length)) {
-        let fakeJSX = `<div id="error-popup"><p>${message}</p></div>`;
+        let fakeJSX = `<div id="error-popup">
+                            <div class="popup-wrapper">
+                                <svg id="close" onclick="$('#block-screen-error').remove();$('#error-popup').remove();" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path fill="black"
+                                d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z" />
+                                </svg>
+                                <p>${message}</p>
+                            </div>
+                        </div>`;
         $("body").append(fakeJSX);
         let height = $(document).height();
         $("body").append(`<div id='block-screen-error' style="height:${height}px"></div>`);
@@ -17,7 +27,17 @@ async function displayErrorMessage(message, timed=true) {
 
 async function displayStatusMessage(message) {
     if (!($("#status-popup").length)) {
-        let fakeJSX = `<div id="status-popup"><p>${message}</p></div>`;
+        let fakeJSX = `<div id="status-popup">
+                            <div class="popup-wrapper">
+                                <svg id="close" onclick="$('#block-screen-status').remove();$('#status-popup').remove();" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                                <path fill="black"
+                                d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z" />
+                                </svg>
+                                <p>${message}</p>
+                            </div>
+                        </div>`;
         $("body").append(fakeJSX);
         let height = $(document).height();
         $("body").append(`<div id='block-screen-status' style="height:${height}px"></div>`);
@@ -73,9 +93,9 @@ function toggleMenu() {
     const el = document.getElementById("mobile-nav-menu")
     el.classList.toggle('expanded')
     el.classList.toggle('collapsed')
- }
+}
 
- function clearPendingTxs() {
+function clearPendingTxs() {
     localStorage.removeItem("WaveCatchersPendingTxs");
     localStorage.removeItem("CocoMarketPendingTxs");
     localStorage.removeItem("CocoPendingTxs");
@@ -83,7 +103,7 @@ function toggleMenu() {
     location.reload();
 };
 
-const loadInfuraListings = async() => {
+const loadInfuraListings = async () => {
     const listings = await fetch(`https://www.wavecatchers.io/.netlify/functions/listings?get=true`).then(res => res.text());
     const jsonData = listings ? JSON.parse(listings) : [];
     $("#live-collections").empty();
@@ -100,7 +120,7 @@ const loadInfuraListings = async() => {
     }
 }
 
-const loadInfuraRaffles = async() => {
+const loadInfuraRaffles = async () => {
     const raffles = await fetch(`https://www.wavecatchers.io/.netlify/functions/raffles?get=true`).then(res => res.text());
     const jsonData = raffles ? JSON.parse(raffles) : [];
     if (jsonData.currentRaffle.raffleLive == false) {
@@ -146,19 +166,27 @@ const signerID = providerID.getSigner();
 
 const identityMapper = new ethers.Contract(identityMapperAddress, identityMapperAbi(), signerID);
 
- const promptForDiscord = async() => {
+const promptForDiscord = async () => {
     if (!($("#discord-popup").length)) {
         let userAddress = await signer.getAddress();
         let currentDiscord = await identityMapper.addressToDiscord(userAddress);
         let discordString = currentDiscord ? currentDiscord : "None";
         let fakeJSX = `<div id="discord-popup">
-                        <div id="content">
-                         <p>Enter Discord User ID to associate with purchases.</p>
-                         <p>Current: ${discordString}</p>
-                         <br>
-                         <input id="discord-name" type="text" spellcheck="false" value="" placeholder="user#1234">
-                         <br>
-                         <button class="button" onclick="setDiscord()"">SET DISCORD</button>
+                        <div class="popup-wrapper">
+                            <svg id="close" onclick="$('#block-screen-discord').remove();$('#discord-popup').remove();" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path fill="black"
+                            d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z" />
+                            </svg>
+                            <div id="content">
+                                <p>Enter Discord User ID to associate with purchases.</p>
+                                <p>Current: ${discordString}</p>
+                                <br>
+                                <input id="discord-name" type="text" spellcheck="false" value="" placeholder="user#1234">
+                                <br>
+                                <button class="button" onclick="setDiscord()"">SET DISCORD</button>
+                            </div>
                         </div>
                        </div>`;
         $("body").append(fakeJSX);
@@ -167,7 +195,7 @@ const identityMapper = new ethers.Contract(identityMapperAddress, identityMapper
     }
 }
 
-const setDiscord = async() => {
+const setDiscord = async () => {
     try {
         let name = $("#discord-name").val();
         console.log(name)
@@ -179,7 +207,7 @@ const setDiscord = async() => {
             await displayErrorMessage(`Error: Must include "#" and numbers in ID!`);
         }
         else {
-            await identityMapper.setDiscordIdentity(name).then( async(tx_) => {
+            await identityMapper.setDiscordIdentity(name).then(async (tx_) => {
                 await waitForTransaction(tx_);
                 $('#discord-popup').remove();
                 $('#block-screen-discord').remove();
@@ -201,7 +229,7 @@ const setDiscord = async() => {
 var discordSet = false;
 var discordFailures = 0;
 
-const updateDiscord = async() => {
+const updateDiscord = async () => {
     try {
         if (!discordSet) {
             let userAddress = await getAddress();
@@ -213,20 +241,20 @@ const updateDiscord = async() => {
                 $("#discord").removeClass("failure");
                 $("#discord-text-mobile").text("SET!");
                 $("#discord-mobile").addClass("success");
-                $("#discord-mobile").removeClass("failure"); 
+                $("#discord-mobile").removeClass("failure");
             }
             else {
                 $("#discord-text").text("NOT SET!");
                 $("#discord").addClass("failure");
-                $("#discord").removeClass("success"); 
-                $("#discord-text-mobile").text("NOT SET!");    
-                $("#discord-mobile").addClass("failure"); 
-                $("#discord-mobile").removeClass("success"); 
+                $("#discord").removeClass("success");
+                $("#discord-text-mobile").text("NOT SET!");
+                $("#discord-mobile").addClass("failure");
+                $("#discord-mobile").removeClass("success");
             }
         }
     }
     catch (error) {
-        discordFailures+=1;
+        discordFailures += 1;
         console.log("unable to reach discord directory")
         if (discordFailures >= 10) {
             discordSet = true;
@@ -236,7 +264,7 @@ const updateDiscord = async() => {
 
 var timeout = 100;
 
-setInterval(async()=>{
+setInterval(async () => {
     await updateDiscord();
     timeout = 5000;
 }, timeout)
