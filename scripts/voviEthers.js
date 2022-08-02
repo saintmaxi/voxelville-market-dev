@@ -407,9 +407,9 @@ const stakeByIds = async () => {
         }
         else {
             let links = await getWalletLinks();
+            console.log(links)
             const plotArray = Array.from(selectedForStaking);
             let stakeRequests = await getStakeRequests(plotArray);
-            console.log(links)
             console.log(stakeRequests)
             await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
                 selectedForStaking = new Set();
