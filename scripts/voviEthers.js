@@ -258,7 +258,7 @@ const claimByIds = async () => {
 
 const claimAll = async () => {
     if (stakedPlots.length == 0) {
-        displayErrorMessage("No tokens to claim for!")
+        displayErrorMessage("There are no staked plots for you to claim!")
     }
     else {
         let links = await getWalletLinks();
