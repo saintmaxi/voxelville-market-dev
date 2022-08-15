@@ -252,16 +252,17 @@ const getClaimRequests = async (plotIDs) => {
                 console.log("retrying Plot API fetch");
                 plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             }
-            let avatarResponse = null;
+
+            let stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
             let avatarID = 0;
             let avatarTxDate = 0;
             let listedAvatar = 0;
             let avatarCoupon = [ethers.utils.formatBytes32String(""), ethers.utils.formatBytes32String(""), 0];
-            let proposedAvatarToStake = proposedStakedPlotsToAvatars.get(plotID);
-            if (proposedAvatarToStake) {
+            let avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${stakedAvatarID}`, options).then(res => res.json());
+            if (stakedAvatarID) {
                 while (jQuery.isEmptyObject(avatarResponse)) {
                     console.log("retrying avatar API fetch");
-                    avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`, options).then(res => res.json());
+                    avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${stakedAvatarID}`, options).then(res => res.json());
                 }
                 avatarID = avatarResponse["tokenId"];
                 avatarTxDate = avatarResponse["lastTx"];
@@ -584,8 +585,8 @@ const unstakeByIds = async () => {
     else {
         let links = await getWalletLinks();
         const plotArray = Array.from(selectedForUnstaking);
-        let stakeRequests = await getClaimRequests(plotArray);
-        await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
+        let unstakeRequests = await getClaimRequests(plotArray);
+        await vovi.stakePlots(links, unstakeRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
@@ -600,8 +601,8 @@ const unstakeAll = async () => {
     }
     else {
         let links = await getWalletLinks();
-        let stakeRequests = await getClaimRequests(stakedPlots);
-        await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
+        let unstakeRequests = await getClaimRequests(stakedPlots);
+        await vovi.stakePlots(links, unstakeRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
@@ -678,12 +679,11 @@ const updateVoviEarned = async () => {
 
 const updateClaimingInfo = async () => {
     if ((await getChainId()) === correctChain) {
+        await getVoviBalance();
         await getAllAvatarsOwned();
-        await sleep(1000);
         await getAllPlotsOwned();
         const loadingDiv = `<div class="loading-div" id="refresh-notification">REFRESHING <br>CLAIMING INTERFACE<span class="one">.</span><span class="two">.</span><span class="three">.</span>​</div><br>`;
         $("#pending-transactions").append(loadingDiv);
-        await getVoviBalance();
         if (stakedPlots.length == 0) {
             $("#claimable-vovi").text("0.0");
         }
