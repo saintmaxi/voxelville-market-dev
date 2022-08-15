@@ -215,6 +215,15 @@ p {
   background-color: var(--active-color) !important;
 }
 
+.link.disabled {
+  color: grey;
+}
+
+.link.disabled:hover {
+  color: grey !important;
+  cursor: default !important;
+}
+
 .body {
   background-color: white;
   font-family: "Korto", sans-serif;
@@ -494,7 +503,8 @@ h5 {
   width: 90% !important;
 }
 
-#new-links {
+#new-links,
+#current-links {
   max-height: 25vh;
   overflow-y: scroll;
 }
