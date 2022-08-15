@@ -254,7 +254,6 @@ const getClaimRequests = async (plotIDs) => {
             }
 
             let stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
-            let avatarID = 0;
             let avatarTxDate = 0;
             let listedAvatar = 0;
             let avatarCoupon = [ethers.utils.formatBytes32String(""), ethers.utils.formatBytes32String(""), 0];
@@ -325,7 +324,6 @@ const claimAll = async () => {
 // Staking functions
 
 
-// TODO - get stake requests to work
 const getStakeRequests = async (plotIDs) => {
 
     let chainID = await getChainId();
@@ -586,7 +584,7 @@ const unstakeByIds = async () => {
         let links = await getWalletLinks();
         const plotArray = Array.from(selectedForUnstaking);
         let unstakeRequests = await getClaimRequests(plotArray);
-        await vovi.stakePlots(links, unstakeRequests).then(async (tx_) => {
+        await vovi.unstakePlots(links, unstakeRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
@@ -602,7 +600,7 @@ const unstakeAll = async () => {
     else {
         let links = await getWalletLinks();
         let unstakeRequests = await getClaimRequests(stakedPlots);
-        await vovi.stakePlots(links, unstakeRequests).then(async (tx_) => {
+        await vovi.unstakePlots(links, unstakeRequests).then(async (tx_) => {
             selectedForUnstaking = new Set();
             $("#selected-for-unstaking").text("None");
             $(".active").removeClass("active");
@@ -610,8 +608,6 @@ const unstakeAll = async () => {
         });
     }
 };
-
-var imagesLoaded = false;
 
 const getAssetImages = async () => {
     $("#available-assets-images").empty();
@@ -666,7 +662,6 @@ const getAssetImages = async () => {
         $("#staked-assets-images").empty();
         $("#staked-assets-images").append(batchFakeJSX);
     }
-    imagesLoaded = true;
 }
 
 const updateVoviEarned = async () => {
@@ -692,9 +687,7 @@ const updateClaimingInfo = async () => {
         }
         $("#your-assets-num").html(unstakedPlots.length);
         $("#your-staked-assets-num").html(stakedPlots.length);
-        if (!imagesLoaded) {
-            await getAssetImages();
-        }
+        await getAssetImages();
         $("#error-popup").remove();
         $("#refresh-notification").remove();
     }
