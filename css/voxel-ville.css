@@ -477,6 +477,8 @@ h5 {
 
 .link-entry {
   margin-bottom: 5px;
+  width: 96%;
+  margin: auto;
 }
 
 #links-view {
@@ -558,6 +560,10 @@ h5 {
   margin: auto;
   margin-top: 3%;
   width: 70%;
+}
+
+#discord-popup #content button {
+  width: 96%;
 }
 
 #confirm-popup #content button {
