@@ -28,6 +28,15 @@
   --text-color: #0e2d4a;
 }
 
+.button.disabled {
+  background-color: lightgrey !important;
+}
+
+.button.disabled:hover {
+  background-color: lightgrey !important;
+  cursor: default !important;
+}
+
 .right-number,
 .left-number {
   font-family: "Korto Ultra";
@@ -141,7 +150,7 @@ p {
 }
 
 #discord-img {
-  height: 1.8vw;
+  height: 1.5vw;
 }
 
 #edit-img {
@@ -162,7 +171,7 @@ p {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  transition: all 0.5s;
+  transition: all 0.2s;
 }
 
 .footer .link {
@@ -200,6 +209,10 @@ p {
 #discord.failure:hover,
 #discord-mobile.failure:hover {
   background-color: #f72119 !important;
+}
+
+#discord:hover {
+  background-color: var(--active-color) !important;
 }
 
 .body {
@@ -290,6 +303,10 @@ p {
 }
 
 .button:hover {
+  background-color: var(--active-color);
+}
+
+.button.active {
   background-color: var(--active-color);
 }
 
@@ -406,7 +423,8 @@ h5 {
 }
 
 #discord-popup {
-  height: 50vh;
+  height: initial;
+  min-height: 60vh;
 }
 
 #confirm-popup {
@@ -440,6 +458,60 @@ h5 {
   width: 95%;
   margin: auto;
   padding-bottom: 0;
+}
+
+#discord-popup p {
+  width: 100%;
+  font-size: 1.6vw !important;
+  line-height: 1.6vw !important;
+}
+
+.link-entry {
+  margin-bottom: 5px;
+}
+
+#links-view {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#links-view button {
+  width: 45% !important;
+  font-size: 1.6vw !important;
+  line-height: 1.6vw !important;
+}
+
+#new-links,
+#current-links {
+  font-size: 1.6vw !important;
+  line-height: 1.6vw !important;
+}
+
+.label-input {
+  width: 90% !important;
+}
+
+#new-links {
+  max-height: 25vh;
+  overflow-y: scroll;
+}
+
+#new-links button {
+  margin-top: 0 !important;
+}
+
+.link-entry {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-entry div {
+  width: 33%;
 }
 
 #stake-popup p,
@@ -681,8 +753,32 @@ h5 {
     /* border-width: 1px; */
   }
 
+  #discord-popup p {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 98% !important;
+  }
+
+  #links-view button {
+    font-size: 4vw !important;
+    line-height: 4.2vw !important;
+  }
+
+  #new-links {
+    font-size: 4vw !important;
+    line-height: 4.2vw !important;
+    margin-top: 10px;
+  }
+
   #discord-popup {
-    height: 45vh;
+    min-height: 65vh;
+  }
+
+  #new-links button,
+  #links-view button,
+  #new-links input {
+    margin-top: 0 !important;
+    min-height: 5vh;
   }
 
   #discord-name {
@@ -754,7 +850,7 @@ h5 {
 
 @media screen and (max-width: 767px) {
   #discord-img {
-    height: 3.3vh;
+    height: 2.5vh;
   }
 
   #edit-img {

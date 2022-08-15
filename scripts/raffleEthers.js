@@ -10,12 +10,12 @@ const wavecatchersAbi = () => {
 };
 
 const marketAddress = "0x85057EF13bFd8c1faF70768Bfe870c0c2e8E61cC";
-const marketAbi = () => { 
+const marketAbi = () => {
     return `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"_id","type":"uint256"},{"indexed":true,"internalType":"address","name":"_address","type":"address"},{"indexed":false,"internalType":"uint256","name":"_amount","type":"uint256"},{"indexed":false,"internalType":"string","name":"_name","type":"string"}],"name":"EnterRaffle","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"_id","type":"uint256"},{"indexed":true,"internalType":"address","name":"_address","type":"address"},{"indexed":false,"internalType":"string","name":"_name","type":"string"}],"name":"PurchaseWL","type":"event"},{"inputs":[{"internalType":"uint256","name":"_price","type":"uint256"},{"internalType":"bool","name":"_capped","type":"bool"}],"name":"addRaffle","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"addWhitelist","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"cocoAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"},{"internalType":"bool","name":"_capped","type":"bool"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editRaffle","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"bool","name":"_capped","type":"bool"}],"name":"editRaffleAmount","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editRaffleEnd","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"editRafflePrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"editWLAmount","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"editWLPrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editWLTimestamp","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editWhitelist","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"string","name":"_name","type":"string"}],"name":"enterRaffle","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"getRaffle","outputs":[{"components":[{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"uint256","name":"endTime","type":"uint256"},{"internalType":"bool","name":"capped","type":"bool"}],"internalType":"struct CocoMarketplaceV2.Raffle","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"getWhitelist","outputs":[{"components":[{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"internalType":"struct CocoMarketplaceV2.Whitelist","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"address","name":"_address","type":"address"}],"name":"hasPurchasedRaffle","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"address","name":"_address","type":"address"}],"name":"hasPurchasedWL","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"isCappedRaffle","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"string","name":"_name","type":"string"}],"name":"purchase","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"raffleCounter","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"raffleTimer","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_cocoAddress","type":"address"}],"name":"setCocoAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_time","type":"uint256"}],"name":"setRaffleTimer","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_time","type":"uint256"}],"name":"setWhitelistTimer","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"skipRaffleIndex","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"whitelistCounter","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"whitelistTimer","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]`;
 };
 
 const cocoAddress = "0x0Df016Fb18ef4195b2CF9d8623E236272ec52e14";
-const cocoAbi = () => { 
+const cocoAbi = () => {
     return `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"EMISSION_RATE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"EMISSION_START_TIMESTAMP","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint16[]","name":"inDays","type":"uint16[]"},{"internalType":"uint256[]","name":"emissions","type":"uint256[]"}],"name":"addLockupPeriods","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"claimFromV1","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"}],"name":"claimPassiveYield","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"}],"name":"claimStakingRewards","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"cocov1","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint16","name":"_id","type":"uint16"}],"name":"getPassiveRewardsForId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"}],"name":"getStakeDatas","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint16","name":"_id","type":"uint16"}],"name":"getStakedRewardsForId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"}],"name":"getStakes","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"marketplace","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"bytes","name":"","type":"bytes"}],"name":"onERC721Received","outputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"proxy","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setCocoV1Address","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setMarketplace","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setProxy","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setWaveCatchersAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"},{"internalType":"uint16[]","name":"_lockupDays","type":"uint16[]"},{"internalType":"bool","name":"claimPassiveRewardsFirst","type":"bool"}],"name":"stake","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"},{"internalType":"bool","name":"claimStakingRewardsFirst","type":"bool"}],"name":"unstake","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"waveCatchers","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"}]`;
 };
 
@@ -58,35 +58,35 @@ if (window.ethereum == undefined) {
 
 // - - - - - - - - - SETUP + GENERAL WEB3 FUNCTIONS - - - - - - - - -
 
-const provider = new ethers.providers.Web3Provider(window.ethereum,"any");
+const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 const signer = provider.getSigner();
 const wavecatchers = new ethers.Contract(wavecatchersAddress, wavecatchersAbi(), signer);
 const market = new ethers.Contract(marketAddress, marketAbi(), signer);
 const coco = new ethers.Contract(cocoAddress, cocoAbi(), signer);
 
-const connect = async()=>{
+const connect = async () => {
     await provider.send("eth_requestAccounts", []);
 };
 
-const getAddress = async() => { 
-    try { 
-        return await signer.getAddress(); 
-    } 
-    catch { 
-        return false; 
+const getAddress = async () => {
+    try {
+        return await signer.getAddress();
     }
-}; 
+    catch {
+        return false;
+    }
+};
 
 
-const formatEther = (balance_)=>{
+const formatEther = (balance_) => {
     return ethers.utils.formatEther(balance_)
 };
 
-const parseEther = (eth_)=>{
+const parseEther = (eth_) => {
     return ethers.utils.parseEther(eth_)
 };
 
-const getChainId = async()=>{
+const getChainId = async () => {
     return await signer.getChainId()
 };
 
@@ -95,14 +95,14 @@ const maxInt = "1157920892373161954235709850086879078532699846656405640394575840
 
 // - - - - - - - - - APPROVAL FUNCTIONS - - - - - - - - -
 
-const approveCocoToMarket = async() => {
-    await coco.approve(marketAddress, maxInt).then (async(tx_) => {
+const approveCocoToMarket = async () => {
+    await coco.approve(marketAddress, maxInt).then(async (tx_) => {
         await waitForTransaction(tx_);
         $("#approval-button").html(`Approving<span class="one">.</span><span class="two">.</span><span class="three">.</span>`)
     });
 }
 
-const checkCocoApproval = async() => {
+const checkCocoApproval = async () => {
     const userAddress = await getAddress();
     let approved = (Number(await coco.allowance(userAddress, marketAddress)) >= maxInt) ? true : false;
     if (approved) {
@@ -121,7 +121,7 @@ var currentID;
 var liveListing;
 var latestEndTime;
 
-const getLatestRaffle = async() => {
+const getLatestRaffle = async () => {
     let raffleCount = await market.raffleCounter();
     if (raffleCount == 0) {
         liveListing = false;
@@ -132,7 +132,7 @@ const getLatestRaffle = async() => {
         let raffleInfo = await market.getRaffle(currentID);
         latestEndTime = raffleInfo.endTime;
         let expired = (raffleInfo.endTime < (Date.now() / 1000));
-    
+
         if (expired) {
             liveListing = false;
             $("#raffle-title").html("No raffles live!");
@@ -147,9 +147,9 @@ const getLatestRaffle = async() => {
             let hasEntered = await market.hasPurchasedRaffle(currentID, await getAddress());
             $("#raffle-title").html(raffleTitle);
             $("#current-raffle-img").attr("src", raffleImg);
-        
+
             capped = raffleInfo.capped;
-        
+
             $("#base-raffle-price").html(rafflePrice);
             if (capped) {
                 $("#total-price").addClass("hidden");
@@ -169,16 +169,16 @@ const getLatestRaffle = async() => {
                 $("#total-entries").html(`Total Entries: <span id="total-entries-val">${totalEntries}</span>`);
                 $("#entry-num").removeClass("hidden");
             }
-        
+
             if (hasEntered) {
                 $("#enter-button").remove();
                 $("#enter-with-name-button").remove();
                 $("#entered-button").removeClass("hidden");
             }
             else {
-                $("#entered-button").addClass("hidden");   
+                $("#entered-button").addClass("hidden");
             }
-    
+
             if (discordRequired) {
                 $("#enter-button").addClass("hidden");
                 $("#enter-with-name-button").removeClass("hidden");
@@ -191,7 +191,7 @@ const getLatestRaffle = async() => {
     }
 }
 
-const getRaffleEntries = async(id) => {
+const getRaffleEntries = async (id) => {
     let userAddress = await getAddress();
     const eventFilter = market.filters.EnterRaffle(id);
     const logs = await market.queryFilter(eventFilter);
@@ -207,7 +207,7 @@ const getRaffleEntries = async(id) => {
     return entries;
 }
 
-const getTotalEntries = async(id) => {
+const getTotalEntries = async (id) => {
     const eventFilter = market.filters.EnterRaffle(id);
     const logs = await market.queryFilter(eventFilter);
 
@@ -219,14 +219,14 @@ const getTotalEntries = async(id) => {
     return entries;
 }
 
-const updateEntries = async() => {
+const updateEntries = async () => {
     let userEntries = await getRaffleEntries(currentID);
     let totalEntries = await getTotalEntries(currentID);
     $("#your-entries-val").html(userEntries);
     $("#total-entries-val").html(totalEntries);
 }
 
-const loadPastRaffles = async() => {
+const loadPastRaffles = async () => {
     $("#past-raffles").empty();
     let userAddress = await getAddress();
     let pastJSX = "";
@@ -247,7 +247,7 @@ const loadPastRaffles = async() => {
         let hasEntered = await market.hasPurchasedRaffle(currentID, userAddress);
 
         if (expired) {
-            numPast +=1;
+            numPast += 1;
             let button;
             if (hasEntered) {
                 button = `<button disabled class="mint-prompt-button button purchased">ENTERED!</button>`;
@@ -273,10 +273,10 @@ const loadPastRaffles = async() => {
     $("#num-past").text(` (${numPast})`);
 }
 
-const enterRaffle = async() => {
+const enterRaffle = async () => {
     try {
         if (capped) {
-            await market.enterRaffle(currentID, 1, "").then( async(tx_) => {
+            await market.enterRaffle(currentID, 1, "").then(async (tx_) => {
                 await waitForTransaction(tx_);
             });
         }
@@ -286,7 +286,7 @@ const enterRaffle = async() => {
                 await displayErrorMessage("Enter an amount of entries!");
             }
             else {
-                await market.enterRaffle(currentID, amount, "").then( async(tx_) => {
+                await market.enterRaffle(currentID, amount, "").then(async (tx_) => {
                     await waitForTransaction(tx_);
                 });
             }
@@ -320,7 +320,7 @@ const enterRaffle = async() => {
 }
 
 
-const enterRaffleWithName = async() => {
+const enterRaffleWithName = async () => {
     try {
         let userAddress = await getAddress();
         if (!discordSet) {
@@ -330,7 +330,7 @@ const enterRaffleWithName = async() => {
         else {
             let currentDiscord = await identityMapper.addressToDiscord(userAddress);
             if (capped) {
-                await market.enterRaffle(currentID, 1, currentDiscord).then( async(tx_) => {
+                await market.enterRaffle(currentID, 1, currentDiscord).then(async (tx_) => {
                     await waitForTransaction(tx_);
                     $('#discord-popup').remove();
                     $('#block-screen-discord').remove()
@@ -338,7 +338,7 @@ const enterRaffleWithName = async() => {
             }
             else {
                 let amount = Number($("#entry-num").val());
-                await market.enterRaffle(currentID, amount, currentDiscord).then( async(tx_) => {
+                await market.enterRaffle(currentID, amount, currentDiscord).then(async (tx_) => {
                     await waitForTransaction(tx_);
                     $('#discord-popup').remove();
                     $('#block-screen-discord').remove()
@@ -375,7 +375,7 @@ const enterRaffleWithName = async() => {
 
 const acceptedChars = new Set("0123456789");
 
-$("#entry-num").on("change keyup paste", function(){
+$("#entry-num").on("change keyup paste", function () {
     try {
         let input = $(this).val();
         if (input == '') {
@@ -396,7 +396,7 @@ $("#entry-num").on("change keyup paste", function(){
     }
 });
 
-setInterval(async()=>{
+setInterval(async () => {
     if (liveListing) {
         var now = Date.now() / 1000;
         var distance = latestEndTime - now;
@@ -414,7 +414,7 @@ setInterval(async()=>{
         if (seconds < 10) {
             seconds = `0${seconds}`;
         }
-            
+
         if (distance <= 0) {
             let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
             if (blockTime > latestEndTime) {
@@ -436,7 +436,7 @@ async function loadRafflesData() {
     rafflesData = await $.getJSON(data_file);
 }
 
-const getCocoBalance = async()=>{
+const getCocoBalance = async () => {
     let userAddress = await getAddress();
     let cocoBalance = await coco.balanceOf(userAddress);
     $("#coco-balance").html(`${(Number(formatEther(cocoBalance))).toFixed(2)}`);
@@ -444,7 +444,7 @@ const getCocoBalance = async()=>{
 
 // General functions
 
-provider.on("network", async(newNetwork, oldNetwork) => {
+provider.on("network", async (newNetwork, oldNetwork) => {
     if (oldNetwork) {
         location.reload();
     }
@@ -453,7 +453,7 @@ provider.on("network", async(newNetwork, oldNetwork) => {
 
 // - - - - - - - - - PROCESSING TRANSACTIONS - - - - - - - - -
 
-const waitForTransaction = async(tx_) => {
+const waitForTransaction = async (tx_) => {
     startLoading(tx_);
     provider.once(tx_.hash, async (transaction_) => {
         await endLoading(tx_, transaction_.status);
@@ -461,7 +461,7 @@ const waitForTransaction = async(tx_) => {
 };
 
 // Resuming UI display, refreshing market for pending txs across pages
-var pendingTransactions = localStorage.getItem("CocoPendingTxs");
+var pendingTransactions = localStorage.getItem("VoviPendingTxs");
 
 if (!pendingTransactions) {
     pendingTransactions = new Set();
@@ -471,14 +471,14 @@ else {
     pendingTxArray = Array.from(pendingTransactions);
     pendingTransactions = new Set();
 
-    for (let i =0; i < pendingTxArray.length; i++) {
+    for (let i = 0; i < pendingTxArray.length; i++) {
         waitForTransaction(pendingTxArray[i]);
     }
-    localStorage.removeItem("CocoPendingTxs");
+    localStorage.removeItem("VoviPendingTxs");
 }
 
 function cachePendingTransactions() {
-    localStorage.setItem("CocoPendingTxs", JSON.stringify(Array.from(pendingTransactions)));
+    localStorage.setItem("VoviPendingTxs", JSON.stringify(Array.from(pendingTransactions)));
 }
 
 function startLoading(tx) {
@@ -506,7 +506,7 @@ async function endLoading(tx, txStatus) {
     pendingTransactions.delete(tx);
 }
 
-setInterval(async()=>{
+setInterval(async () => {
     await updateInfo();
     await getCocoBalance();
     await updateEntries();
@@ -514,7 +514,7 @@ setInterval(async()=>{
 
 var chainLogoSet = false;
 
-const setChainLogo = async() => {
+const setChainLogo = async () => {
     let chainLogo = "";
     let chain = await getChainId();
     if (chain == 1 || chain == 4) {
@@ -531,19 +531,19 @@ const setChainLogo = async() => {
 const updateInfo = async () => {
     await checkCocoApproval();
     let userAddress = await getAddress();
-    $("#account-text").html(`${userAddress.substr(0,7)}..`);
+    $("#account-text").html(`${userAddress.substr(0, 7)}..`);
     $("#account").addClass(`connected`);
-    $("#mobile-account-text").html(`${userAddress.substr(0,7)}..`);
+    $("#mobile-account-text").html(`${userAddress.substr(0, 7)}..`);
     // if (!chainLogoSet) {
     //     await setChainLogo();
     // }
 };
 
-ethereum.on("accountsChanged", async(accounts_)=>{
+ethereum.on("accountsChanged", async (accounts_) => {
     location.reload();
 });
 
-window.onload = async()=>{
+window.onload = async () => {
     if (!(await getAddress())) {
         console.log("using infura")
         await loadInfuraRaffles();
@@ -551,6 +551,7 @@ window.onload = async()=>{
     else {
         console.log("using wallet")
         await updateInfo();
+        await addLinksOption();
         await loadRafflesData();
         await getLatestRaffle();
         await loadPastRaffles();
@@ -558,6 +559,6 @@ window.onload = async()=>{
     }
 };
 
-window.onunload = async()=>{
+window.onunload = async () => {
     cachePendingTransactions();
 }

@@ -10,17 +10,17 @@ const wavecatchersAbi = () => {
 };
 
 const cocoAddress = "0x0Df016Fb18ef4195b2CF9d8623E236272ec52e14";
-const cocoAbi = () => { 
+const cocoAbi = () => {
     return `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"EMISSION_RATE","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"EMISSION_START_TIMESTAMP","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint16[]","name":"inDays","type":"uint16[]"},{"internalType":"uint256[]","name":"emissions","type":"uint256[]"}],"name":"addLockupPeriods","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"claimFromV1","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"}],"name":"claimPassiveYield","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"}],"name":"claimStakingRewards","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"cocov1","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint16","name":"_id","type":"uint16"}],"name":"getPassiveRewardsForId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"}],"name":"getStakeDatas","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"},{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint16","name":"_id","type":"uint16"}],"name":"getStakedRewardsForId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"}],"name":"getStakes","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"marketplace","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"bytes","name":"","type":"bytes"}],"name":"onERC721Received","outputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"proxy","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setCocoV1Address","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setMarketplace","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setProxy","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"setWaveCatchersAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"},{"internalType":"uint16[]","name":"_lockupDays","type":"uint16[]"},{"internalType":"bool","name":"claimPassiveRewardsFirst","type":"bool"}],"name":"stake","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_user","type":"address"},{"internalType":"uint16[]","name":"_tokenIds","type":"uint16[]"},{"internalType":"bool","name":"claimStakingRewardsFirst","type":"bool"}],"name":"unstake","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"waveCatchers","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"}]`;
 };
 
 const marketAddress = "0x061B8879C93B0289437ED45cADFA614c14971C84";
-const marketAbi = () => { 
+const marketAbi = () => {
     return `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"_id","type":"uint256"},{"indexed":true,"internalType":"address","name":"_address","type":"address"}],"name":"Purchase","type":"event"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"addWhitelist","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"cocoAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"getWhitelist","outputs":[{"components":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"uint256","name":"amount","type":"uint256"}],"internalType":"struct CocoMarketplace.Whitelist","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"address","name":"_address","type":"address"}],"name":"hasPurchased","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"purchase","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_cocoAddress","type":"address"}],"name":"setCocoAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"whitelistCounter","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]`;
 };
 
 const newMarketAddress = "0x85057EF13bFd8c1faF70768Bfe870c0c2e8E61cC";
-const newMarketAbi = () => { 
+const newMarketAbi = () => {
     return `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"_id","type":"uint256"},{"indexed":true,"internalType":"address","name":"_address","type":"address"},{"indexed":false,"internalType":"uint256","name":"_amount","type":"uint256"},{"indexed":false,"internalType":"string","name":"_name","type":"string"}],"name":"EnterRaffle","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"uint256","name":"_id","type":"uint256"},{"indexed":true,"internalType":"address","name":"_address","type":"address"},{"indexed":false,"internalType":"string","name":"_name","type":"string"}],"name":"PurchaseWL","type":"event"},{"inputs":[{"internalType":"uint256","name":"_price","type":"uint256"},{"internalType":"bool","name":"_capped","type":"bool"}],"name":"addRaffle","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"addWhitelist","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"cocoAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"},{"internalType":"bool","name":"_capped","type":"bool"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editRaffle","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"bool","name":"_capped","type":"bool"}],"name":"editRaffleAmount","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editRaffleEnd","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"editRafflePrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"editWLAmount","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"editWLPrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editWLTimestamp","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"},{"internalType":"uint256","name":"_timestamp","type":"uint256"}],"name":"editWhitelist","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"string","name":"_name","type":"string"}],"name":"enterRaffle","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"getRaffle","outputs":[{"components":[{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"uint256","name":"endTime","type":"uint256"},{"internalType":"bool","name":"capped","type":"bool"}],"internalType":"struct CocoMarketplaceV2.Raffle","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"getWhitelist","outputs":[{"components":[{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"internalType":"struct CocoMarketplaceV2.Whitelist","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"address","name":"_address","type":"address"}],"name":"hasPurchasedRaffle","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"address","name":"_address","type":"address"}],"name":"hasPurchasedWL","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"}],"name":"isCappedRaffle","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"string","name":"_name","type":"string"}],"name":"purchase","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"raffleCounter","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"raffleTimer","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_cocoAddress","type":"address"}],"name":"setCocoAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_time","type":"uint256"}],"name":"setRaffleTimer","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_time","type":"uint256"}],"name":"setWhitelistTimer","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"skipRaffleIndex","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"whitelistCounter","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"whitelistTimer","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]`;
 };
 
@@ -78,32 +78,32 @@ const coco = new ethers.Contract(cocoAddress, cocoAbi(), signer);
 const market = new ethers.Contract(marketAddress, marketAbi(), signer);
 const newMarket = new ethers.Contract(newMarketAddress, newMarketAbi(), signer);
 
-const connect = async() => { await provider.send("eth_requestAccounts", []) };
-const getAddress = async() => { try { return await signer.getAddress(); } catch { return false; }}; 
+const connect = async () => { await provider.send("eth_requestAccounts", []) };
+const getAddress = async () => { try { return await signer.getAddress(); } catch { return false; } };
 const formatEther = (balance_) => { return ethers.utils.formatEther(balance_) }; // divides by 18 modulus
 const parseEther = (eth_) => { return ethers.utils.parseEther(eth_) }; // multiplies by 18 modulus
-const getChainId = async() => { return await signer.getChainId() };
+const getChainId = async () => { return await signer.getChainId() };
 
 // General Variables
 const maxInt = "115792089237316195423570985008687907853269984665640564039457584007913129639934";
 
 // - - - - - - - - - APPROVAL FUNCTIONS - - - - - - - - -
 
-const approveCocoToMarket = async() => {
-    await coco.approve(marketAddress, maxInt).then (async(tx_) => {
+const approveCocoToMarket = async () => {
+    await coco.approve(marketAddress, maxInt).then(async (tx_) => {
         await waitForTransaction(tx_);
         $("#approval-button").html(`Approving<span class="one">.</span><span class="two">.</span><span class="three">.</span>`)
     });
 }
 
-const approveCocoToNewMarket = async() => {
-    await coco.approve(newMarketAddress, maxInt).then (async(tx_) => {
+const approveCocoToNewMarket = async () => {
+    await coco.approve(newMarketAddress, maxInt).then(async (tx_) => {
         await waitForTransaction(tx_);
         $("#approval-button-new").html(`Approving<span class="one">.</span><span class="two">.</span><span class="three">.</span>`)
     });
 }
 
-const checkPrepSteps = async() => {
+const checkPrepSteps = async () => {
     const userAddress = await getAddress();
     let newMarketApproved = (Number(await coco.allowance(userAddress, newMarketAddress)) >= maxInt) ? true : false;
     if (newMarketApproved && discordSet) {
@@ -131,14 +131,14 @@ const checkPrepSteps = async() => {
 
 // - - - - - - - - - PURCHASE FUNCTIONS - - - - - - - - -
 
-const hasWaveCatchers = async() => {
+const hasWaveCatchers = async () => {
     let userAddress = await getAddress();
     let totalWaveCatchers = (await coco.getStakes(userAddress)).length + await wavecatchers.balanceOf(userAddress);
     let hasWC = (totalWaveCatchers > 0);
     return hasWC;
 }
 
-const purchaseWithName  = async(id) => {
+const purchaseWithName = async (id) => {
     try {
         if (false) {
             await displayErrorMessage("Error: Must set Discord ID to associate with purchases!");
@@ -147,7 +147,7 @@ const purchaseWithName  = async(id) => {
         else {
             let userAddress = await getAddress();
             let currentDiscord = "test"
-            await newMarket.purchase(id, currentDiscord).then( async(tx_) => {
+            await newMarket.purchase(id, currentDiscord).then(async (tx_) => {
                 await waitForTransaction(tx_);
                 $('#discord-popup').remove();
                 $('#block-screen-discord').remove()
@@ -184,14 +184,14 @@ const purchaseWithName  = async(id) => {
     }
 }
 
-const purchase  = async(id) => {
+const purchase = async (id) => {
     try {
         let hasWC = await hasWaveCatchers();
         if (hasWC) {
             await displayErrorMessage("Error: Must have Wave Catcher in wallet to purchase!")
         }
         else {
-            await market.purchase(id).then( async(tx_) => {
+            await market.purchase(id).then(async (tx_) => {
                 await waitForTransaction(tx_);
             });
         }
@@ -244,7 +244,7 @@ const purchase  = async(id) => {
 
 // - - - - - - - - - LOAD AND UPDATE LISTING DISPLAYS - - - - - - - - -
 
-const getCocoBalance = async()=>{
+const getCocoBalance = async () => {
     let userAddress = await getAddress();
     let cocoBalance = await coco.balanceOf(userAddress);
     $("#coco-balance").html(`${(Number(formatEther(cocoBalance))).toFixed(2)}`);
@@ -254,7 +254,7 @@ var liveListings = [];
 var timerPending = [];
 var loadedCollections = false;
 
-setInterval(async()=>{
+setInterval(async () => {
     if (loadedCollections) {
         for (let i = 0; i < liveListings.length; i++) {
             if (timerPending[i]) {
@@ -262,7 +262,7 @@ setInterval(async()=>{
                 let now = Date.now() / 1000;
                 let timestamp = Number((await newMarket.getWhitelist(id)).timestamp);
                 let distance = timestamp - now;
-        
+
                 var hours = Math.floor(distance / (60 * 60));
                 var minutes = Math.floor((distance % (60 * 60)) / (60));
                 var seconds = Math.floor((distance % (60)));
@@ -276,7 +276,7 @@ setInterval(async()=>{
                 if (seconds < 10) {
                     seconds = `0${seconds}`;
                 }
-                              
+
                 if (distance <= 0) {
                     let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
                     if (blockTime > timestamp) {
@@ -300,14 +300,14 @@ setInterval(async()=>{
 
 const splitArrayToChunks = (array_, chunkSize_) => {
     let _arrays = Array(Math.ceil(array_.length / chunkSize_))
-    .fill()
-    .map((_, index) => index * chunkSize_)
-    .map((begin) => array_.slice(begin, begin + chunkSize_));
+        .fill()
+        .map((_, index) => index * chunkSize_)
+        .map((begin) => array_.slice(begin, begin + chunkSize_));
 
     return _arrays;
 };
 
-const loadCollections = async() => {
+const loadCollections = async () => {
     let userAddress = await getAddress();
     let liveJSX = "";
     let pastJSX = "";
@@ -318,10 +318,10 @@ const loadCollections = async() => {
     let idToLiveJSX = new Map();
     let idToPastJSX = new Map();
     for (const chunk of chunks) {
-        await Promise.all( chunk.map( async(i) => {
+        await Promise.all(chunk.map(async (i) => {
             let marketContract;
             let version;
-    
+
             let id = Number(i);
             if (id < V2_START) {
                 version = 1;
@@ -331,12 +331,12 @@ const loadCollections = async() => {
                 version = 2;
                 marketContract = newMarket;
             }
-    
+
             // WL data from contract
             let WLinfo = await marketContract.getWhitelist(id);
 
             let collectionPrice = Number(formatEther(WLinfo.price));
-    
+
             // Data from JSON file
             let collection = collectionsData[String(id)];
             let maxSlots = collection["max-slots"];
@@ -351,7 +351,7 @@ const loadCollections = async() => {
             else if (network == "arb") {
                 networkLogo = "./images/arbitrum.png";
             }
-    
+
             let winners = [];
             if (version == 2) {
                 let eventFilter = marketContract.filters.PurchaseWL(id);
@@ -367,7 +367,7 @@ const loadCollections = async() => {
                     winners.push(events[i].args._address);
                 }
             }
-    
+
             if (display) {
                 if (minted != maxSlots) {
                     numLive += 1;
@@ -404,7 +404,7 @@ const loadCollections = async() => {
                     idToLiveJSX.set(id, fakeJSX);
                 }
                 else {
-                    numPast +=1;
+                    numPast += 1;
                     let button;
                     if (winners.includes(userAddress)) {
                         button = `<button disabled class="mint-prompt-button button purchased">PURCHASED!</button>`;
@@ -432,9 +432,9 @@ const loadCollections = async() => {
             }
         }));
     }
-    
-    let liveIds = Array.from(idToLiveJSX.keys()).map(Number).sort(function(a, b){return b-a});
-    let pastIds = Array.from(idToPastJSX.keys()).map(Number).sort(function(a, b){return b-a});
+
+    let liveIds = Array.from(idToLiveJSX.keys()).map(Number).sort(function (a, b) { return b - a });
+    let pastIds = Array.from(idToPastJSX.keys()).map(Number).sort(function (a, b) { return b - a });
     for (const liveId of liveIds) {
         liveJSX += idToLiveJSX.get(liveId);
     }
@@ -463,7 +463,7 @@ async function loadCollectionsData() {
     collectionsData = await $.getJSON(data_file);
 }
 
-const updateSupplies = async() => {
+const updateSupplies = async () => {
     let projectIDs = Object.keys(collectionsData);
     for (let i = 0; i < projectIDs.length; i++) {
         let marketContract;
@@ -490,7 +490,7 @@ const updateSupplies = async() => {
 // - - - - - - - - - PROCESSING TRANSACTIONS - - - - - - - - -
 
 // After Tx Hook
-const waitForTransaction = async(tx_) => {
+const waitForTransaction = async (tx_) => {
     startLoading(tx_);
     provider.once(tx_.hash, async (transaction_) => {
         await endLoading(tx_, transaction_.status);
@@ -498,7 +498,7 @@ const waitForTransaction = async(tx_) => {
 };
 
 // Resuming UI display, refreshing market for pending txs across pages
-var pendingTransactions = localStorage.getItem("CocoMarketPendingTxs");
+var pendingTransactions = localStorage.getItem("VoviPendingTxs");
 
 if (!pendingTransactions) {
     pendingTransactions = new Set();
@@ -508,14 +508,14 @@ else {
     pendingTxArray = Array.from(pendingTransactions);
     pendingTransactions = new Set();
 
-    for (let i =0; i < pendingTxArray.length; i++) {
+    for (let i = 0; i < pendingTxArray.length; i++) {
         waitForTransaction(pendingTxArray[i]);
     }
-    localStorage.removeItem("CocoMarketPendingTxs");
+    localStorage.removeItem("VoviPendingTxs");
 }
 
 function cachePendingTransactions() {
-    localStorage.setItem("CocoMarketPendingTxs", JSON.stringify(Array.from(pendingTransactions)));
+    localStorage.setItem("VoviPendingTxs", JSON.stringify(Array.from(pendingTransactions)));
 }
 
 function startLoading(tx) {
@@ -548,7 +548,7 @@ async function endLoading(tx, txStatus) {
 
 var chainLogoSet = false;
 
-const setChainLogo = async() => {
+const setChainLogo = async () => {
     let chainLogo = "";
     let chain = await getChainId();
     if (chain == 1 || chain == 4) {
@@ -565,15 +565,15 @@ const setChainLogo = async() => {
 const updateInfo = async () => {
     // await checkPrepSteps();
     let userAddress = await getAddress();
-    $("#account-text").html(`${userAddress.substr(0,7)}..`);
+    $("#account-text").html(`${userAddress.substr(0, 7)}..`);
     $("#account").addClass(`connected`);
-    $("#mobile-account-text").html(`${userAddress.substr(0,7)}..`);
+    $("#mobile-account-text").html(`${userAddress.substr(0, 7)}..`);
     // if (!chainLogoSet) {
     //     await setChainLogo();
     // }
 };
 
-setInterval( async() => {
+setInterval(async () => {
     await getCocoBalance();
     await updateInfo();
     if (loadedCollections) {
@@ -581,31 +581,32 @@ setInterval( async() => {
     }
 }, 5000)
 
-ethereum.on("accountsChanged", async (accounts_) => { 
+ethereum.on("accountsChanged", async (accounts_) => {
     await updateInfo();
     location.reload();
 });
 
-provider.on("network", async(newNetwork, oldNetwork) => {
+provider.on("network", async (newNetwork, oldNetwork) => {
     if (oldNetwork) {
         location.reload();
     }
 });
 
-window.onload = async() => {
+window.onload = async () => {
     if (!(await getAddress())) {
         console.log("using infura")
         await loadInfuraListings();
     }
     else {
-        console.log("using wallet")
+        console.log("using wallet");
         await updateInfo();
+        await addLinksOption();
         await loadCollectionsData();
         await loadCollections();
         await getCocoBalance();
     }
 };
 
-window.onunload = async()=>{
+window.onunload = async () => {
     cachePendingTransactions();
 }
