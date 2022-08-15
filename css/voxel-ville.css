@@ -768,6 +768,10 @@ h5 {
     /* border-width: 1px; */
   }
 
+  #discord-popup {
+    width: 90vw;
+  }
+
   #discord-popup p {
     padding-left: 0 !important;
     padding-right: 0 !important;
