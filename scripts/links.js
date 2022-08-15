@@ -114,7 +114,7 @@ const openLinksPrompt = async () => {
                                 <br>
                                 <div id="new-links">${newLinksJSX}</div>
                                 <p id="current-links" class="hidden">${(currentlinks != []) ? currentlinks.join("<br><br>") : "No current links"}</p>
-                                <button class="button" onclick="setLinks()">SET LINKS</button>
+                                <button class="button" id="set-link-button" onclick="setLinks()">SET LINKS</button>
                             </div>
                         </div>
                        </div>`;
@@ -129,6 +129,7 @@ function showNewLinks() {
     $('#new-links').removeClass('hidden');
     $("#new-links-button").addClass("active");
     $("#current-links-button").removeClass("active");
+    $("#set-link-button").removeClass("hidden");
 }
 
 function showCurrentLinks() {
@@ -136,4 +137,5 @@ function showCurrentLinks() {
     $('#new-links').addClass('hidden');
     $("#new-links-button").removeClass("active");
     $("#current-links-button").addClass("active");
+    $("#set-link-button").addClass("hidden");
 }
