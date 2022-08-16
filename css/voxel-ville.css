@@ -410,8 +410,8 @@ h5 {
 
 .popup-wrapper #close {
   position: absolute;
-  top: 1%;
-  right: 1%;
+  top: 3%;
+  right: 2%;
   width: 5%;
   z-index: 99999;
 }
@@ -435,7 +435,7 @@ h5 {
   width: 53vw;
   height: 35vh;
   border: solid 1px black;
-  /* border-radius: .2em; */
+  border-radius: 40px;
   text-align: center;
   box-shadow: 0 0 5000px 5000px rgba(0, 0, 0, 0.88);
 }
@@ -568,6 +568,16 @@ h5 {
   margin: auto;
   margin-top: 3%;
   width: 70%;
+  background-color: black;
+  color: white;
+}
+
+#discord-popup #content button:hover {
+  background-color: rgb(111, 78, 222);
+}
+
+#discord-popup #content button.active {
+  background-color: rgb(111, 78, 222);
 }
 
 #discord-popup #content button {
@@ -770,6 +780,8 @@ h5 {
 
   .popup-wrapper #close {
     width: 10%;
+    top: 3%;
+    right: 2%;
   }
 
   #error-popup,
@@ -779,6 +791,7 @@ h5 {
   #confirm-popup {
     width: 75vw;
     height: 15vh;
+    border-radius: 20px;
     /* border-width: 1px; */
   }
 

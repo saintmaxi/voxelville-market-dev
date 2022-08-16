@@ -306,6 +306,7 @@ input {
 
   #expand-container {
     overflow: hidden;
+    border-bottom: solid 2px black;
   }
 
   #mobile-nav-menu {

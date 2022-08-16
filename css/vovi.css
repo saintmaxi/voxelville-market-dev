@@ -32,6 +32,11 @@ h3 {
   flex-direction: column;
   justify-content: end;
   align-items: center;
+  border-radius: 40px;
+}
+
+#stake-popup * {
+  color: black !important;
 }
 
 .arrow {
@@ -74,6 +79,12 @@ h3 {
 
 #button-wrapper button {
   width: 50%;
+  background-color: black;
+  color: white !important;
+}
+
+#button-wrapper button:hover {
+  background-color: rgb(111, 78, 222);
 }
 
 .staking-row {
@@ -97,6 +108,7 @@ h3 {
 .staking-plot select,
 .staking-avatar select {
   border: solid black 0.2vw;
+  border-radius: 40px;
 }
 
 .staking-plot p,
