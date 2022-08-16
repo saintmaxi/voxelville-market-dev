@@ -139,7 +139,7 @@ const getWalletLinks = async () => {
 }
 
 const getAllPlotsOwned = async () => {
-    let userAddress = await getAddress();
+    let links = await getWalletLinks();
     let chainID = await getChainId();
     let ownedPlotIDs = [];
 
@@ -148,15 +148,20 @@ const getAllPlotsOwned = async () => {
         headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
 
-    let response = await fetch(`${openseaAPIBase}?owner=${userAddress}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false`, options).then(res => res.json())
-
-    for (let asset of response["assets"]) {
-        let id = Number(asset["token_id"])
-        ownedPlotIDs.push(id);
-        plotIDtoURL.set(id, asset["image_url"]);
+    for (link of links) {
+        let wallet = link[0];
+        let response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false`, options).then(res => res.json());
+        while (response["assets"] == undefined) {
+            await sleep(1000)
+            response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false`, options).then(res => res.json());
+        }
+        for (let asset of response["assets"]) {
+            let id = Number(asset["token_id"])
+            ownedPlotIDs.push(id);
+            plotIDtoURL.set(id, asset["image_url"]);
+        }
     }
 
-    let links = await getWalletLinks();
     stakedPlots = (await vovi.stakedPlotsOf(links)).sort((a, b) => a - b).map(Number);
     unstakedPlots = (ownedPlotIDs.filter(item => !stakedPlots.includes(item))).sort((a, b) => a - b);
 
@@ -176,7 +181,7 @@ const getAllPlotsOwned = async () => {
 }
 
 const getAllAvatarsOwned = async () => {
-    let userAddress = await getAddress();
+    let links = await getWalletLinks();
     let chainID = await getChainId();
     let ownedAvatarIDs = [];
 
@@ -185,12 +190,18 @@ const getAllAvatarsOwned = async () => {
         headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
 
-    let response = await fetch(`${openseaAPIBase}?owner=${userAddress}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false`, options).then(res => res.json())
-
-    for (let asset of response["assets"]) {
-        let id = Number(asset["token_id"])
-        ownedAvatarIDs.push(id);
-        avatarIDtoURL.set(id, asset["image_url"])
+    for (link of links) {
+        let wallet = link[0];
+        let response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false`, options).then(res => res.json());
+        while (response["assets"] == undefined) {
+            await sleep(1000)
+            response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false`, options).then(res => res.json());
+        }
+        for (let asset of response["assets"]) {
+            let id = Number(asset["token_id"])
+            ownedAvatarIDs.push(id);
+            avatarIDtoURL.set(id, asset["image_url"])
+        }
     }
 
     unstakedAvatars = (ownedAvatarIDs.filter(item => !stakedAvatars.includes(item))).sort((a, b) => a - b);
@@ -220,8 +231,7 @@ const getRewardsForId = async (project, id, staked) => {
     }
 }
 
-/**TO DO: rewards calculation */
-const getPendingVoviBalance = async () => { // need to add up by total of each token
+const getPendingVoviBalance = async () => {
     let pendingVovi = 0;
     for (plotID of stakedPlots) {
         let tokensEarned = await getRewardsForId("voxelVille", plotID, true);
@@ -251,7 +261,7 @@ const getClaimRequests = async (plotIDs) => {
 
             let plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             while (jQuery.isEmptyObject(plotResponse)) {
-                console.log("retrying Plot API fetch");
+                // console.log("retrying Plot API fetch");
                 plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             }
 
@@ -262,7 +272,7 @@ const getClaimRequests = async (plotIDs) => {
             let avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${stakedAvatarID}`, options).then(res => res.json());
             if (stakedAvatarID) {
                 while (jQuery.isEmptyObject(avatarResponse)) {
-                    console.log("retrying avatar API fetch");
+                    // console.log("retrying avatar API fetch");
                     avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${stakedAvatarID}`, options).then(res => res.json());
                 }
                 avatarID = avatarResponse["tokenId"];
@@ -278,7 +288,6 @@ const getClaimRequests = async (plotIDs) => {
         $("#status-popup").remove();
         $("#block-screen-status").remove();
 
-        console.log(claimRequests)
         return claimRequests;
     }
     catch (error) {
@@ -342,7 +351,7 @@ const getStakeRequests = async (plotIDs) => {
         for (plotID of plotIDs) {
             let plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             while (jQuery.isEmptyObject(plotResponse)) {
-                console.log("retrying Plot API fetch");
+                // console.log("retrying Plot API fetch");
                 plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             }
             let avatarResponse = null;
@@ -353,7 +362,7 @@ const getStakeRequests = async (plotIDs) => {
             let proposedAvatarToStake = proposedStakedPlotsToAvatars.get(plotID);
             if (proposedAvatarToStake) {
                 while (jQuery.isEmptyObject(avatarResponse)) {
-                    console.log("retrying avatar API fetch");
+                    // console.log("retrying avatar API fetch");
                     avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`, options).then(res => res.json());
                 }
                 avatarID = avatarResponse["tokenId"];
@@ -457,10 +466,8 @@ const stakeByIds = async () => {
         }
         else {
             let links = await getWalletLinks();
-            console.log(links)
             const plotArray = Array.from(selectedForStaking);
             let stakeRequests = await getStakeRequests(plotArray);
-            console.log(stakeRequests)
             await vovi.stakePlots(links, stakeRequests).then(async (tx_) => {
                 selectedForStaking = new Set();
                 $("#selected-for-staking").text("None");
