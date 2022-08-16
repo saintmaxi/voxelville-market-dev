@@ -337,6 +337,7 @@ h3 {
     flex-direction: column;
     justify-content: end;
     align-items: center;
+    border-radius: 20px;
   }
 
   #inner-wrapper {
@@ -365,6 +366,7 @@ h3 {
   .staking-plot select,
   .staking-avatar select {
     border: solid black 1px;
+    border-radius: 20px;
   }
 
   #button-wrapper {
@@ -518,7 +520,7 @@ h3 {
   }
 
   .your-asset img {
-    border-width: 2px;
+    border-width: 4px;
   }
 
   .your-asset .vovi-icon {
@@ -536,11 +538,11 @@ h3 {
   }
 
   .active img {
-    border: solid 5px var(--active-color);
+    border: solid 4px yellow;
   }
 
   .your-asset:hover img {
-    border: solid 5px var(--active-color);
+    border: solid 4px yellow;
     cursor: pointer;
   }
 
