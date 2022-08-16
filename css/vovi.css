@@ -1,6 +1,6 @@
 :root {
-  --active-color: #98b2e0;
-  --text-color: #0e2d4a;
+  --active-color: rgb(204, 200, 200);
+  --text-color: white;
 }
 
 #vovi-description {
@@ -19,8 +19,8 @@ h3 {
 }
 
 h3 {
-  font-size: 1.7vw !important;
-  line-height: 1.7vw !important;
+  font-size: 1.4vw !important;
+  line-height: 1.4vw !important;
 }
 
 /* Staking Popup Stuff */
@@ -169,7 +169,6 @@ h3 {
 
 #available-assets-images,
 #staked-assets-images {
-  background-color: rgb(248, 242, 242);
   /* border: solid black .5vw; */
   /* border-radius: 20px; */
   /* height: 50vh; */
@@ -204,8 +203,8 @@ h3 {
 }
 
 .your-asset img {
-  border: solid black 0.2vw;
-  /* border-radius: 20px; */
+  border: solid white 0.2vw;
+  border-radius: 20px;
   margin: 5px;
   background-color: black;
 }
@@ -223,7 +222,7 @@ h3 {
 
 .asset-id,
 .vovi-earned {
-  color: black;
+  color: var(--text-color);
   margin-bottom: 0px;
   padding: 0 !important;
   text-align: center;
@@ -236,11 +235,11 @@ h3 {
 
 .your-asset:hover .asset-id,
 .your-asset:hover .vovi-earned {
-  color: var(--active-color) !important;
+  color: yellow !important;
 }
 
 .your-asset:hover img {
-  border-color: var(--active-color);
+  border-color: yellow;
   cursor: pointer;
 }
 
@@ -250,17 +249,13 @@ h3 {
 }
 
 .active img {
-  border-color: var(--active-color);
-}
-
-.selected {
-  color: black;
+  border-color: yellow;
 }
 
 .active img,
 .active p {
-  border-color: var(--active-color);
-  color: var(--active-color) !important;
+  border-color: yellow;
+  color: yellow !important;
 }
 
 .asset-id {

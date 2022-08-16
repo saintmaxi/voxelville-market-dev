@@ -24,7 +24,7 @@
 // const correctChain = 1;
 // const voxelVilleImageURI = "https://ipfs.io/ipfs/QmexjQs2VCMxyNSNNxdeRwgBzu8UiA6pox1yW55hfCxAML/";
 // const voxelVilleAvatarsImageURI = "https://ipfs.io/ipfs/QmewrTBK83aM7Exm3TPZegRYsJJHDyLJcKfXj8xKQT3txB/";
-// const voviImgURL = "https://github.com/saintmaxi/wave-catchers/blob/main/images/coco.png?raw=true";
+// const voviImgURL = "images/coin.png";
 
 /*********************************************************************************/
 /********************************DEV CONFIG********************************/
@@ -51,7 +51,7 @@ const voviAPIBase = "https://vv-coupons-front-api-uqnd7.ondigitalocean.app";
 const correctChain = 4;
 const voxelVilleImageURI = "https://ipfs.io/ipfs/QmXvvnzWa24KGajmCiF3HCYaDTHCnJ1dbGBAc6PGRgCvcX/";
 const voxelVilleAvatarsImageURI = "https://ipfs.io/ipfs/QmewrTBK83aM7Exm3TPZegRYsJJHDyLJcKfXj8xKQT3txB/";
-const voviImgURL = "https://bloodstainedritualofthenight.wiki.fextralife.com/file/Bloodstained-Ritual-of-The-Night/8-bit-coin-material-bloodstained-wiki-guide.png";
+const voviImgURL = "images/coin.png";
 
 /*********************************END CONFIG************************************/
 
@@ -96,7 +96,7 @@ const importVoviToWallet = async () => {
                 address: voviAddress,
                 symbol: 'VOVI',
                 decimals: 18,
-                image: voviImgURL,
+                image: "https://github.com/saintmaxi/voxelville-market-dev/blob/main/images/coin.png?raw=true",
             },
         },
     });
