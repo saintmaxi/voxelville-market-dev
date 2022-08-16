@@ -41,9 +41,11 @@ const setLinks = async () => {
     for (wallet of connectedWallets) {
         if ($(`#label-${wallet}`).val() == "") {
             await displayErrorMessage("Error: You must label all wallets!");
+            return;
         }
         else if (!walletToSignedMessage.has(wallet)) {
             await displayErrorMessage("Error: You must sign on all wallets!");
+            return;
         }
         else {
             walletLinks.push({
