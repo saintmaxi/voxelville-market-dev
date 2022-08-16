@@ -3,16 +3,6 @@
   src: URL("../css/pixels.ttf") format("truetype");
 }
 
-/* @font-face {  
-	font-family: 'Korto';
-	src: URL('../css/korto-medium.ttf') format('truetype');
-}  
-
-@font-face {  
-	font-family: 'Korto Ultra';
-	src: URL('../css/korto-ultra.ttf') format('truetype');
-}   */
-
 @font-face {
   font-family: "Korto";
   src: URL("../css/roboto.regular.ttf") format("truetype");
