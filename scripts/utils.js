@@ -40,7 +40,7 @@ async function displayStatusMessage(message) {
                         </div>`;
         $("body").append(fakeJSX);
         let height = $(document).height();
-        $("body").append(`<div id='block-screen-status' style="height:${height}px"></div>`);
+        $("body").append(`<div id='block-screen-status' onclick="$('#block-screen-status').remove();$('#status-popup').remove();" style="height:${height}px"></div>`);
     }
 }
 

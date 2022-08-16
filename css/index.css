@@ -431,8 +431,8 @@ input {
   #about p {
     padding-left: 0 !important;
     padding-right: 0 !important;
-    font-size: 18px !important;
-    line-height: 18px !important;
+    /* font-size: 18px !important;
+    line-height: 20px !important; */
   }
 
   #about-text-mobile {
