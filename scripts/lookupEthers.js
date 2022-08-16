@@ -99,35 +99,6 @@ const getChainId = async () => {
     return await signer.getChainId()
 };
 
-const getCocoEarnedByID = async () => {
-    try {
-        let input = $("#token-id").val();
-        if (!input) {
-            $("#pending-coco").text("Invalid ID");
-        }
-        else {
-            let id = Number(input);
-            if (id < 0 || id > (await wavecatchers.totalSupply() - 1)) {
-                $("#pending-coco").text("Invalid ID");
-            }
-            else {
-                let pendingCoco = Number(formatEther(await coco.getPassiveRewardsForId(id))).toFixed(2);
-                $("#pending-coco").html(`UNCLAIMED: ${pendingCoco} <img src="./images/coco.png" class="coco-icon">`);
-            }
-        }
-        $("#spacer").remove();
-        $("#pending-coco-div").removeClass("hidden");
-    }
-    catch (error) {
-        console.log('Metamask throws extra error. Token reward lookup was successful.')
-        console.log(error);
-        let pendingCoco = 0;
-        $("#pending-coco").html(`UNCLAIMED: ${pendingCoco} <img src="./images/coco.png" class="coco-icon">`);
-        $("#spacer").remove();
-        $("#pending-coco-div").removeClass("hidden");
-    }
-};
-
 const splitArrayToChunks = (array_, chunkSize_) => {
     let _arrays = Array(Math.ceil(array_.length / chunkSize_))
         .fill()
