@@ -25,6 +25,7 @@
 // const voxelVilleImageURI = "https://ipfs.io/ipfs/QmexjQs2VCMxyNSNNxdeRwgBzu8UiA6pox1yW55hfCxAML/";
 // const voxelVilleAvatarsImageURI = "https://ipfs.io/ipfs/QmewrTBK83aM7Exm3TPZegRYsJJHDyLJcKfXj8xKQT3txB/";
 // const voviImgURL = "images/coin.png";
+// const REQUEST_SLEEP = 1000;
 
 /*********************************************************************************/
 /********************************DEV CONFIG********************************/
@@ -52,6 +53,7 @@ const correctChain = 4;
 const voxelVilleImageURI = "https://ipfs.io/ipfs/QmXvvnzWa24KGajmCiF3HCYaDTHCnJ1dbGBAc6PGRgCvcX/";
 const voxelVilleAvatarsImageURI = "https://ipfs.io/ipfs/QmewrTBK83aM7Exm3TPZegRYsJJHDyLJcKfXj8xKQT3txB/";
 const voviImgURL = "images/coin.png";
+const REQUEST_SLEEP = 1000;
 
 /*********************************END CONFIG************************************/
 
@@ -140,6 +142,11 @@ const getWalletLinks = async () => {
 
 const getAllPlotsOwned = async () => {
     let links = await getWalletLinks();
+    let userAddress = await getAddress();
+    let wallets = links.map(link => link[0]);
+    if (!wallets.includes(userAddress)) {
+        wallets.push(userAddress);
+    }
     let chainID = await getChainId();
     let ownedPlotIDs = [];
 
@@ -148,11 +155,11 @@ const getAllPlotsOwned = async () => {
         headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
 
-    for (link of links) {
-        let wallet = link[0];
+    for (wallet of wallets) {
+        // let wallet = link[0];
         let response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false`, options).then(res => res.json());
         while (response["assets"] == undefined) {
-            await sleep(1000)
+            await sleep(REQUEST_SLEEP)
             response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false`, options).then(res => res.json());
         }
         for (let asset of response["assets"]) {
@@ -182,6 +189,11 @@ const getAllPlotsOwned = async () => {
 
 const getAllAvatarsOwned = async () => {
     let links = await getWalletLinks();
+    let userAddress = await getAddress();
+    let wallets = links.map(link => link[0]);
+    if (!wallets.includes(userAddress)) {
+        wallets.push(userAddress);
+    }
     let chainID = await getChainId();
     let ownedAvatarIDs = [];
 
@@ -190,11 +202,10 @@ const getAllAvatarsOwned = async () => {
         headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
 
-    for (link of links) {
-        let wallet = link[0];
+    for (wallet of wallets) {
         let response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false`, options).then(res => res.json());
         while (response["assets"] == undefined) {
-            await sleep(1000)
+            await sleep(REQUEST_SLEEP);
             response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false`, options).then(res => res.json());
         }
         for (let asset of response["assets"]) {
