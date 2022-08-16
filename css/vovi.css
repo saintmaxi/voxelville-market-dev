@@ -26,8 +26,8 @@ h3 {
 /* Staking Popup Stuff */
 
 #stake-popup {
-  height: 90vh;
-  width: 80vw;
+  height: 70vh;
+  width: 60vw;
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -51,8 +51,8 @@ h3 {
 
 #inner-wrapper #close {
   position: absolute;
-  top: 1%;
-  right: 1%;
+  top: 2%;
+  right: 2%;
   width: 3%;
 }
 
@@ -78,7 +78,7 @@ h3 {
 }
 
 #button-wrapper button {
-  width: 50%;
+  width: 70%;
   background-color: black;
   color: white !important;
 }
@@ -119,8 +119,8 @@ h3 {
 
 .staking-avatar select {
   text-align: center;
-  font-size: 1.9vw !important;
-  line-height: 2vw !important;
+  font-size: 1.4vw !important;
+  line-height: 1.6vw !important;
   width: 100%;
 }
 
@@ -157,7 +157,7 @@ h3 {
 }
 
 .vovi-balance-container button {
-  width: 75%;
+  min-width: 60%;
 }
 
 #your-vovi-container {
@@ -247,11 +247,11 @@ h3 {
 
 .your-asset:hover .asset-id,
 .your-asset:hover .vovi-earned {
-  color: yellow !important;
+  color: black !important;
 }
 
 .your-asset:hover img {
-  border-color: yellow;
+  border-color: black;
   cursor: pointer;
 }
 
@@ -261,13 +261,13 @@ h3 {
 }
 
 .active img {
-  border-color: yellow;
+  border-color: black;
 }
 
 .active img,
 .active p {
-  border-color: yellow;
-  color: yellow !important;
+  border-color: black;
+  color: black !important;
 }
 
 .asset-id {
@@ -538,11 +538,11 @@ h3 {
   }
 
   .active img {
-    border: solid 4px yellow;
+    border: solid 4px black;
   }
 
   .your-asset:hover img {
-    border: solid 4px yellow;
+    border: solid 4px black;
     cursor: pointer;
   }
 
