@@ -169,7 +169,8 @@ const getAllPlotsOwned = async () => {
         }
     }
 
-    stakedPlots = (await vovi.stakedPlotsOf(links)).sort((a, b) => a - b).map(Number);
+    stakedPlots = (await vovi.stakedPlotsOf(links))
+    stakedPlots = [...stakedPlots].sort((a, b) => a - b).map(Number);
     unstakedPlots = (ownedPlotIDs.filter(item => !stakedPlots.includes(item))).sort((a, b) => a - b);
 
     for (plot of stakedPlots) {
