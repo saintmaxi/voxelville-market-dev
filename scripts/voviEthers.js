@@ -26,6 +26,7 @@
 // const voxelVilleAvatarsImageURI = "https://ipfs.io/ipfs/QmewrTBK83aM7Exm3TPZegRYsJJHDyLJcKfXj8xKQT3txB/";
 // const voviImgURL = "images/coin.png";
 // const REQUEST_SLEEP = 1000;
+// const collectorsOnly = true;
 
 /*********************************************************************************/
 /********************************DEV CONFIG********************************/
@@ -54,6 +55,7 @@ const voxelVilleImageURI = "https://ipfs.io/ipfs/QmXvvnzWa24KGajmCiF3HCYaDTHCnJ1
 const voxelVilleAvatarsImageURI = "https://ipfs.io/ipfs/QmewrTBK83aM7Exm3TPZegRYsJJHDyLJcKfXj8xKQT3txB/";
 const voviImgURL = "images/coin.png";
 const REQUEST_SLEEP = 1000;
+const collectorsOnly = true;
 
 /*********************************END CONFIG************************************/
 
@@ -155,6 +157,8 @@ const getAllPlotsOwned = async () => {
         headers: { Accept: 'application/json', 'X-API-KEY': (chainID == 4) ? "" : '04f8b0cf85de4a949c5d5ac8135aa9a0' }
     };
 
+    let collectionsOwned = new Set();
+
     for (wallet of wallets) {
         // let wallet = link[0];
         let response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false`, options).then(res => res.json());
@@ -166,6 +170,19 @@ const getAllPlotsOwned = async () => {
             let id = Number(asset["token_id"])
             ownedPlotIDs.push(id);
             plotIDtoURL.set(id, asset["image_url"]);
+            collectionsOwned.add(asset["traits"][0]["value"])
+        }
+    }
+
+    if (collectorsOnly) {
+        if (collectionsOwned.size === 9) {
+            await displayStatusMessage("Welcome, verified collector! As thanks for holding all 9 Voxel Ville collections, please enjoy early access to our staking platform.")
+        }
+        else {
+            await displayStatusMessage("Welcome, cherished holder! Staking is currently limited to those that hold all 9 Voxel Ville collections. Access for all holders will open soon!")
+            $(".stake-action-button").addClass("disabled");
+            $(".stake-action-button").attr("onclick", "");
+        
         }
     }
 
