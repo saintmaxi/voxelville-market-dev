@@ -172,6 +172,19 @@ const getAllPlotsOwned = async () => {
             plotIDtoURL.set(id, asset["image_url"]);
             collectionsOwned.add(asset["traits"][0]["value"])
         }
+        while (response["next"] != undefined) {
+            response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false&cursor=${response["next"]}`, options).then(res => res.json());
+            while (response["assets"] == undefined) {
+                await sleep(REQUEST_SLEEP)
+                response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAddress}&limit=50&include_orders=false&cursor=${response["next"]}`, options).then(res => res.json());
+            }
+            for (let asset of response["assets"]) {
+                let id = Number(asset["token_id"])
+                ownedPlotIDs.push(id);
+                plotIDtoURL.set(id, asset["image_url"]);
+                collectionsOwned.add(asset["traits"][0]["value"])
+            }
+        }
     }
 
     if (collectorsOnly) {
@@ -231,6 +244,18 @@ const getAllAvatarsOwned = async () => {
             ownedAvatarIDs.push(id);
             avatarIDtoURL.set(id, asset["image_url"])
         }
+        while (response["next"] != undefined) {
+            response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false&cursor=${response["next"]}`, options).then(res => res.json());
+            while (response["assets"] == undefined) {
+                await sleep(REQUEST_SLEEP)
+                response = await fetch(`${openseaAPIBase}?owner=${wallet}&order_direction=desc&asset_contract_addresses=${voxelVilleAvatarsAddress}&limit=50&include_orders=false&cursor=${response["next"]}`, options).then(res => res.json());
+            }
+            for (let asset of response["assets"]) {
+                let id = Number(asset["token_id"])
+                ownedAvatarIDs.push(id);
+                avatarIDtoURL.set(id, asset["image_url"]);
+            }
+        }
     }
 
     unstakedAvatars = (ownedAvatarIDs.filter(item => !stakedAvatars.includes(item))).sort((a, b) => a - b);
@@ -282,16 +307,24 @@ const getClaimRequests = async (plotIDs) => {
         await displayStatusMessage(`Generating request<span class="one">.</span><span class="two">.</span><span class="three">.</span></span>`);
         let userAddress = await getAddress();
         let claimRequests = [];
-        for (plotID of plotIDs) {
+
+        const plotChunks = splitArrayToChunks(plotIDs, 1000);
+        for (const plotChunk of plotChunks) {
+            await Promise.all(plotChunk.map(async (id) => {
+                let plotID = Number(id);
+
+        // for (plotID of plotIDs) {
             let rewardResponse = await fetch(`${voviAPIBase}/nfts/voxelVille/${plotID}`).then(res => res.json());
             let tokenID = rewardResponse["tokenId"];
             let tokens = rewardResponse["tokens"];
             let coupon = rewardResponse["coupon"];
             let reward = [tokenID, tokens, coupon];
+            console.log("rewards response is", rewardResponse)
 
             let plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             while (jQuery.isEmptyObject(plotResponse)) {
-                // console.log("retrying Plot API fetch");
+                console.log("returned from plot api:", plotResponse)
+                console.log("retrying Plot API fetch");
                 plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             }
 
@@ -302,7 +335,8 @@ const getClaimRequests = async (plotIDs) => {
             let avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${stakedAvatarID}`, options).then(res => res.json());
             if (stakedAvatarID) {
                 while (jQuery.isEmptyObject(avatarResponse)) {
-                    // console.log("retrying avatar API fetch");
+                    console.log("returned from avatar api:", avatarResponse)
+                    console.log("retrying avatar API fetch");
                     avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${stakedAvatarID}`, options).then(res => res.json());
                 }
                 avatarID = avatarResponse["tokenId"];
@@ -313,7 +347,8 @@ const getClaimRequests = async (plotIDs) => {
 
             claimRequests.push([plotResponse["tokenId"], plotResponse["lastTx"], plotResponse["listed"], reward, plotResponse["coupon"],
                 avatarTxDate, listedAvatar, avatarCoupon]);
-        }
+        }))
+    }
 
         $("#status-popup").remove();
         $("#block-screen-status").remove();
@@ -324,7 +359,7 @@ const getClaimRequests = async (plotIDs) => {
         $("#status-popup").remove();
         $("#block-screen-status").remove();
         await displayErrorMessage("An error occurred. See console and window alert for details...")
-        window.alert(error);
+        window.alert(JSON.stringify(error));
         console.log(error);
     }
 }
@@ -378,10 +413,15 @@ const getStakeRequests = async (plotIDs) => {
         await displayStatusMessage(`Generating request<span class="one">.</span><span class="two">.</span><span class="three">.</span></span>`);
         let userAddress = await getAddress();
         let stakeRequests = [];
-        for (plotID of plotIDs) {
+        const plotChunks = splitArrayToChunks(plotIDs, 1000);
+        for (const plotChunk of plotChunks) {
+            await Promise.all(plotChunk.map(async (id) => {
+        // for (plotID of plotIDs) {
+            let plotID = Number(id);
             let plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             while (jQuery.isEmptyObject(plotResponse)) {
-                // console.log("retrying Plot API fetch");
+                console.log("plot response is", plotResponse)
+                console.log("retrying Plot API fetch");
                 plotResponse = await fetch(`${voviAPIBase}/transactions/voxelVille?walletAddress=${userAddress}&tokenId=${plotID}`, options).then(res => res.json());
             }
             let avatarResponse = null;
@@ -392,7 +432,8 @@ const getStakeRequests = async (plotIDs) => {
             let proposedAvatarToStake = proposedStakedPlotsToAvatars.get(plotID);
             if (proposedAvatarToStake) {
                 while (jQuery.isEmptyObject(avatarResponse)) {
-                    // console.log("retrying avatar API fetch");
+                    console.log("avatar response is", avatarResponse)
+                    console.log("retrying avatar API fetch");
                     avatarResponse = await fetch(`${voviAPIBase}/transactions/voxelVilleAvatars?walletAddress=${userAddress}&tokenId=${proposedAvatarToStake}`, options).then(res => res.json());
                 }
                 avatarID = avatarResponse["tokenId"];
@@ -402,7 +443,8 @@ const getStakeRequests = async (plotIDs) => {
             }
             stakeRequests.push([plotResponse["tokenId"], plotResponse["lastTx"], plotResponse["listed"], plotResponse["coupon"],
                 avatarID, avatarTxDate, listedAvatar, avatarCoupon]);
-        }
+        }))
+    }
 
         $("#status-popup").remove();
         $("#block-screen-status").remove();
@@ -413,7 +455,7 @@ const getStakeRequests = async (plotIDs) => {
         $("#status-popup").remove();
         $("#block-screen-status").remove();
         await displayErrorMessage("An error occurred. See console and window alert for details...")
-        window.alert(error);
+        window.alert(JSON.stringify(error));
         console.log(error);
     }
 }
@@ -513,7 +555,10 @@ const stakeByIds = async () => {
         }
     }
     catch (error) {
-        if ((error.message).includes("This property cannot be staked yet")) {
+        if ((error.message).includes("amount prohibited")) {
+            await displayErrorMessage(`Error: Can only stake max 40 plots in one transaction!`)
+        }
+        else if ((error.message).includes("This property cannot be staked yet")) {
             await displayErrorMessage(`Error: This property cannot be staked yet!`)
         }
         else if ((error.message).includes("sender not owner")) {
@@ -541,7 +586,7 @@ const stakeByIds = async () => {
             await displayErrorMessage(`Error: Could not determine last transaction date for avatar!`)
         }
         else if ((error.message).includes("Wallet links do not include sender")) {
-            await displayErrorMessage(`Error: Wallet links do not include sender!`)
+            await displayErrorMessage(`Error: You have not set any wallet links! Please <span id="wallet-link-opener" onclick="$('#block-screen-error').remove();$('#error-popup').remove();openLinksPrompt();">set a link</span>, then attempt again.`, false);
         }
         else if ((error.message).includes("Cannot confirm wallet linking")) {
             await displayErrorMessage(`Error: Cannot confirm wallet linking!`)
@@ -554,7 +599,7 @@ const stakeByIds = async () => {
         }
         else {
             await displayErrorMessage("An error occurred. See console and window alert for details...");
-            window.alert(error);
+            window.alert(JSON.stringify(error));
             console.log(error);
         }
     }
@@ -581,7 +626,7 @@ const stakeAll = async () => {
     }
     catch (error) {
         if ((error.message).includes("amount prohibited")) {
-            await displayErrorMessage(`Error: Amount prohibited!`)
+            await displayErrorMessage(`Error: Can only stake max 40 plots in one transaction!`)
         }
         else if ((error.message).includes("Invalid reward coupon received")) {
             await displayErrorMessage(`Error: Invalid reward coupon!`)
@@ -612,7 +657,7 @@ const stakeAll = async () => {
         }
         else {
             await displayErrorMessage("An error occurred. See console and window alert for details...");
-            window.alert(error);
+            window.alert(JSON.stringify(error));
             console.log(error);
         }
     }
@@ -651,12 +696,22 @@ const unstakeAll = async () => {
     }
 };
 
+const splitArrayToChunks = (array_, chunkSize_) => {
+    let _arrays = Array(Math.ceil(array_.length / chunkSize_))
+        .fill()
+        .map((_, index) => index * chunkSize_)
+        .map((begin) => array_.slice(begin, begin + chunkSize_));
+
+    return _arrays;
+};
+
 const getAssetImages = async () => {
     $("#available-assets-images").empty();
     $("#available-assets-images").append(`<br><h3>Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
     $("#staked-assets-images").empty();
     $("#staked-assets-images").append(`<br><h3>Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
 
+    
 
     // unstaked plots
     if (unstakedPlots.length == 0) {
@@ -665,18 +720,31 @@ const getAssetImages = async () => {
     }
     else {
         let batchFakeJSX = "";
-        for (let i = 0; i < unstakedPlots.length; i++) {
-            let plotID = Number(unstakedPlots[i]);
+        const unstakedChunks = splitArrayToChunks(unstakedPlots, 1000);
+        let idToUnstakedJSX = new Map();
+
+        for (const unstakedChunk of unstakedChunks) {
+            await Promise.all(unstakedChunk.map(async (id) => {
+        
+        // for (let i = 0; i < unstakedPlots.length; i++) {
+            let plotID = Number(id);
             let active = "";
             if (selectedForStaking.has(plotID)) {
                 active = "active";
             }
 
             let bonusClaimed = await vovi.isBulkClaimed(plotID);
+            console.log("calling api")
             let earnRate = await getRewardsForId("voxelVille", plotID, false);
+            console.log("returned from api")
 
-            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}"><div class="asset-img-wrapper"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForStaking(${plotID})">${bonusClaimed ? "" : `<div class='bonus-label' title='Collect ${(earnRate * 30).toFixed(2)} $VOVI bonus after first claim on this plot!'>🎁&nbsp ELIGIBLE</div>`}</div><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">~ ${earnRate}</span><img src="${voviImgURL}" class="vovi-icon">/day</p></div>`;
-        };
+            idToUnstakedJSX.set(plotID, `<div id="asset-${plotID}" class="your-asset ${active}"><div class="asset-img-wrapper"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForStaking(${plotID})">${bonusClaimed ? "" : `<div class='bonus-label' title='Collect ${(earnRate * 30).toFixed(2)} $VOVI bonus after first claim on this plot!'>🎁&nbsp ELIGIBLE</div>`}</div><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">~ ${earnRate}</span><img src="${voviImgURL}" class="vovi-icon">/day</p></div>`);
+        // };
+            }))
+        }
+        for (unstakedID of unstakedPlots) {
+            batchFakeJSX += idToUnstakedJSX.get(unstakedID);
+        }
         $("#available-assets-images").empty();
         $("#available-assets-images").append(batchFakeJSX);
     }
@@ -689,8 +757,14 @@ const getAssetImages = async () => {
     else {
         let batchFakeJSX = "";
         let stakedAvatarID;
-        for (let i = 0; i < stakedPlots.length; i++) {
-            let plotID = stakedPlots[i];
+        const stakedChunks = splitArrayToChunks(stakedPlots, 1000);
+        let idToStakedJSX = new Map();
+
+        for (const stakedChunk of stakedChunks) {
+            await Promise.all(stakedChunk.map(async (id) => {
+
+        // for (let i = 0; i < stakedPlots.length; i++) {
+            let plotID = Number(id);
             let active = "";
             if (selectedForUnstaking.has(Number(plotID))) {
                 active = "active";
@@ -701,8 +775,13 @@ const getAssetImages = async () => {
             let voviEarned = await getRewardsForId("voxelVille", plotID, true);
             stakedAvatarID = await vovi.getStakedAvatarFor(plotID);
 
-            batchFakeJSX += `<div id="asset-${plotID}" class="your-asset ${active}" title="Earning ~${earnRate} $VOVI/day"><div class="asset-img-wrapper"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForUnstaking(${plotID})">${bonusClaimed ? "" : `<div class='bonus-label' title='Collect ${(earnRate * 30).toFixed(2)} $VOVI bonus after first claim on this plot!'>🎁 : ${(earnRate * 30).toFixed(2)} <img src="${voviImgURL}" class="vovi-icon"></div>`}</div><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned">Avatar: ${stakedAvatarID != 0 ? "#" + stakedAvatarID : "None"}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">${voviEarned}</span><img src="${voviImgURL}" class="vovi-icon"></p></div>`
-        };
+            idToStakedJSX.set(plotID, `<div id="asset-${plotID}" class="your-asset ${active}" title="Earning ~${earnRate} $VOVI/day"><div class="asset-img-wrapper"><img src="${plotIDtoURL.get(plotID)}" onclick="selectForUnstaking(${plotID})">${bonusClaimed ? "" : `<div class='bonus-label' title='Collect ${(earnRate * 30).toFixed(2)} $VOVI bonus after first claim on this plot!'>🎁 : ${(earnRate * 30).toFixed(2)} <img src="${voviImgURL}" class="vovi-icon"></div>`}</div><p class="asset-id">Plot #${plotID}</p><p class="vovi-earned">Avatar: ${stakedAvatarID != 0 ? "#" + stakedAvatarID : "None"}</p><p class="vovi-earned"><span id="vovi-earned-${plotID}">${voviEarned}</span><img src="${voviImgURL}" class="vovi-icon"></p></div>`);
+        // };
+            }))
+        }
+        for (stakedID of stakedPlots) {
+            batchFakeJSX += idToStakedJSX.get(stakedID);
+        }
         $("#staked-assets-images").empty();
         $("#staked-assets-images").append(batchFakeJSX);
     }
@@ -856,8 +935,8 @@ async function endLoading(tx, txStatus) {
 
 setInterval(async () => {
     await updateInfo();
-    await updateVoviEarned();
-    await getPendingVoviBalance();
+    // await updateVoviEarned();
+    // await getPendingVoviBalance();
 }, 5000)
 
 
